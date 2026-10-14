@@ -4,22 +4,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SATYA YUME | 夢を追え</title>
-
-<!-- Your Google Programmable Search Engine -->
-<script async src="https://cse.google.com/cse.js?cx=715f4c4df6f294b78"></script>
+<title>SATYA YUME 🌌</title>
 
 <style>
-:root {
-  --blue: #36cfff;
-  --purple: #9b72ff;
-  --panel: rgba(10, 20, 45, .92);
-  --border: #29476d;
+* {
+  box-sizing: border-box;
 }
 
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -35,18 +29,18 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: -3;
+  z-index: -2;
   pointer-events: none;
 }
 
 .space-glow {
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 15% 25%, #512d9855, transparent 45%),
-    radial-gradient(ellipse at 85% 70%, #086eb344, transparent 48%);
+    radial-gradient(ellipse at 15% 20%, #512d9844, transparent 45%),
+    radial-gradient(ellipse at 85% 75%, #086eb344, transparent 45%);
 }
 
 .planet {
@@ -54,25 +48,25 @@ body {
   z-index: -1;
   border-radius: 50%;
   pointer-events: none;
-  animation: float 8s ease-in-out infinite alternate;
+  animation: float 7s ease-in-out infinite alternate;
 }
 
 .planet-one {
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
   top: 30%;
   left: 3%;
-  background: radial-gradient(circle at 30% 25%, #e4caff, #8650cc 48%, #21103c);
+  background: radial-gradient(circle at 30% 25%, #e4caff, #8650cc 50%, #21103c);
   box-shadow: 0 0 35px #925bff66;
 }
 
 .planet-two {
-  width: 62px;
-  height: 62px;
-  right: 3%;
-  bottom: 15%;
+  width: 55px;
+  height: 55px;
+  right: 4%;
+  bottom: 18%;
   background: radial-gradient(circle at 30% 25%, #a7f7ff, #2879b8 55%, #102044);
-  animation-delay: -4s;
+  animation-delay: -3s;
 }
 
 @keyframes float {
@@ -83,30 +77,32 @@ body {
 header {
   position: sticky;
   top: 0;
-  z-index: 20;
-  background: rgba(5, 8, 23, .95);
-  border-bottom: 1px solid #25436a;
+  z-index: 10;
+  background: #050817ed;
+  border-bottom: 1px solid #294667;
   backdrop-filter: blur(12px);
 }
 
 .navbar {
-  max-width: 1400px;
+  max-width: 1250px;
   margin: auto;
-  padding: 14px 5%;
+  padding: 15px 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  align-items: center;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
 .logo {
   font-size: 23px;
   font-weight: 900;
-  white-space: nowrap;
 }
 
-.logo span { color: var(--blue); }
+.logo span,
+.accent {
+  color: #36cfff;
+}
 
 nav {
   display: flex;
@@ -115,19 +111,17 @@ nav {
 }
 
 nav a {
-  display: inline-block;
-  padding: 11px 12px;
+  padding: 10px 12px;
   color: white;
   text-decoration: none;
   background: #101e3b;
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  border: 1px solid #294667;
+  border-radius: 9px;
   transition: .25s;
 }
 
 nav a:hover {
-  background: #17395e;
-  border-color: var(--blue);
+  border-color: #36cfff;
   transform: translateY(-2px);
 }
 
@@ -138,52 +132,54 @@ main {
   padding: 25px 20px 60px;
 }
 
-section { scroll-margin-top: 100px; }
+section {
+  scroll-margin-top: 100px;
+}
 
 .hero {
   text-align: center;
-  padding: 55px 10px 38px;
+  padding: 45px 10px 30px;
 }
 
 .eyebrow {
-  color: var(--blue);
+  color: #36cfff;
   font-size: 12px;
   letter-spacing: 5px;
 }
 
 h1 {
   margin: 18px 0;
-  font-size: clamp(40px, 7vw, 76px);
-  letter-spacing: 2px;
+  font-size: clamp(42px, 7vw, 76px);
   animation: glow 3s ease-in-out infinite alternate;
 }
 
-h1 span { color: var(--blue); }
+h1 span {
+  color: #36cfff;
+}
 
 @keyframes glow {
   from { text-shadow: 0 0 10px #36cfff44; }
-  to { text-shadow: 0 0 30px #9b72ffbb, 0 0 50px #36cfff44; }
+  to { text-shadow: 0 0 28px #9b72ffbb; }
 }
 
-.hero > p {
+.hero p {
   color: #bdc9e5;
   line-height: 1.7;
 }
 
-.top-search {
+.search-form {
   display: flex;
   gap: 8px;
   width: 100%;
-  max-width: 760px;
-  margin: 28px auto 12px;
-  padding: 9px;
-  background: var(--panel);
-  border: 1px solid var(--blue);
-  border-radius: 14px;
-  box-shadow: 0 0 25px #1678b522;
+  max-width: 780px;
+  margin: 25px auto 12px;
+  padding: 8px;
+  background: #080f25;
+  border: 1px solid #36cfff;
+  border-radius: 13px;
 }
 
-.top-search input {
+.search-form input {
   flex: 1;
   width: 0;
   min-width: 0;
@@ -196,15 +192,26 @@ h1 span { color: var(--blue); }
   outline: none;
 }
 
-.top-search input:focus { border-color: var(--blue); }
+.search-form input:focus {
+  border-color: #36cfff;
+  box-shadow: 0 0 12px #36cfff33;
+}
+
+button {
+  font-family: inherit;
+}
 
 .primary {
   padding: 12px 18px;
   color: white;
   background: linear-gradient(120deg, #176ba8, #6944b8);
-  border: 1px solid #69dfff;
+  border: 1px solid #36cfff;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.primary:hover {
+  filter: brightness(1.2);
 }
 
 .note {
@@ -212,31 +219,41 @@ h1 span { color: var(--blue); }
   font-size: 12px;
 }
 
-.section-title {
-  margin: 42px 0 18px;
-  font-size: 28px;
+.panel {
+  margin: 25px 0;
+  padding: 22px;
+  min-width: 0;
+  overflow: hidden;
+  background: #0b1430ee;
+  border: 1px solid #294667;
+  border-radius: 17px;
 }
 
-.section-title span { color: var(--blue); }
+.panel h2 {
+  margin-top: 0;
+  color: #c6b4ff;
+}
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 205px), 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 155px), 1fr));
+  gap: 14px;
 }
 
 .card {
   min-width: 0;
-  padding: 21px;
-  border: 1px solid #263f69;
-  border-radius: 16px;
-  background: linear-gradient(145deg, #142448ee, #0a1127f2);
+  padding: 18px 12px;
+  text-align: center;
+  background: linear-gradient(145deg, #201442, #101d3a);
+  border: 1px solid #493580;
+  border-radius: 15px;
   transition: transform .25s, border-color .25s, box-shadow .25s;
   animation: cardFloat 5s ease-in-out infinite alternate;
 }
 
-.card:nth-child(2n) { animation-delay: -2s; }
-.card:nth-child(3n) { animation-delay: -3s; }
+.card:nth-child(2n) {
+  animation-delay: -2s;
+}
 
 @keyframes cardFloat {
   from { transform: translateY(0); }
@@ -244,131 +261,89 @@ h1 span { color: var(--blue); }
 }
 
 .card:hover {
-  transform: translateY(-7px);
-  border-color: var(--blue);
-  box-shadow: 0 0 24px #36cfff25;
+  transform: translateY(-6px);
+  border-color: #36cfff;
+  box-shadow: 0 0 20px #36cfff22;
 }
 
-.emoji { font-size: 30px; }
-
-.card h3 { margin: 12px 0 8px; }
-
-.card p {
-  color: #aebedb;
-  font-size: 13px;
-  line-height: 1.6;
+.card .emoji {
+  font-size: 32px;
 }
 
-.card a {
-  display: inline-block;
-  margin-top: 8px;
-  color: var(--blue);
-  font-weight: bold;
-  text-decoration: none;
+.card h3 {
+  font-size: 16px;
+  margin: 12px 0;
 }
 
-.card a:hover { text-decoration: underline; }
+.card button {
+  width: 100%;
+  padding: 10px 8px;
+  color: white;
+  background: #14294c;
+  border: 1px solid #36cfff88;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
-/* Search panel: all widths stay inside the panel */
-.search-panel {
+.card button:hover {
+  background: #214577;
+}
+
+/* In-page website viewer */
+#browserPanel {
+  padding: 0;
+  background: #080f25;
+  border-color: #36cfff;
+}
+
+#browserPanel[hidden] {
+  display: none;
+}
+
+.browser-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 13px;
+  background: #101e3b;
+  border-bottom: 1px solid #294667;
+}
+
+#browserTitle {
+  flex: 1;
+  min-width: 140px;
+  color: #36cfff;
+  overflow-wrap: anywhere;
+}
+
+.browser-toolbar button {
+  padding: 9px 11px;
+  color: white;
+  background: #18294b;
+  border: 1px solid #36cfff88;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#browserFrame {
   display: block;
   width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  margin: 30px 0 40px;
-  overflow: hidden;
-  border: 1px solid var(--blue);
-  border-radius: 16px;
-  background: var(--panel);
-  box-shadow: 0 0 25px #1678b51c;
+  height: 65vh;
+  min-height: 350px;
+  border: 0;
+  background: #fff;
 }
 
-.search-panel-head {
-  padding: 18px;
-  border-bottom: 1px solid #294a70;
-}
-
-.search-panel-head h2 {
-  margin: 0 0 8px;
-  font-size: 23px;
-}
-
-.search-panel-head p {
+.browser-note {
   margin: 0;
-  color: #aebedb;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-#googleSearch {
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
   padding: 12px;
-  overflow: hidden;
-}
-
-#googleSearch .gsc-control-cse,
-#googleSearch .gsc-control-wrapper-cse {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  background: transparent !important;
-  box-sizing: border-box !important;
-}
-
-#googleSearch table,
-#googleSearch td,
-#googleSearch .gsc-table-result,
-#googleSearch .gsc-input-box,
-#googleSearch .gsc-search-box,
-#googleSearch .gsc-results-wrapper-visible {
-  max-width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-#googleSearch .gsc-input-box {
-  border: 1px solid var(--blue) !important;
-  border-radius: 8px !important;
-  overflow: hidden;
-}
-
-#googleSearch input.gsc-input {
-  width: 100% !important;
-  min-width: 0 !important;
-  color: #111827 !important;
-  font-size: 16px !important;
-}
-
-#googleSearch .gsc-search-button-v2 {
-  padding: 12px !important;
-  background: linear-gradient(120deg, #176ba8, #6944b8) !important;
-  border: 1px solid var(--blue) !important;
-  border-radius: 8px !important;
-}
-
-#googleSearch .gsc-webResult.gsc-result,
-#googleSearch .gsc-results .gsc-imageResult {
-  overflow-wrap: anywhere;
-  border: 1px solid #294667 !important;
-  border-radius: 9px !important;
-  background: #101e3b !important;
-}
-
-#googleSearch .gsc-webResult a,
-#googleSearch .gsc-webResult .gs-snippet,
-#googleSearch .gsc-webResult .gs-visibleUrl {
-  overflow-wrap: anywhere;
+  color: #aebedb;
+  font-size: 12px;
+  line-height: 1.6;
 }
 
 .about {
-  margin-top: 40px;
-  padding: 25px;
-  border: 1px solid #263f69;
-  border-radius: 16px;
-  background: #0d1831dd;
   color: #c0cce3;
   line-height: 1.8;
 }
@@ -382,15 +357,42 @@ footer {
 }
 
 @media (max-width: 650px) {
-  .navbar { justify-content: center; }
-  nav { justify-content: center; }
-  nav a { padding: 9px; font-size: 12px; }
-  .hero { padding-top: 35px; }
-  .top-search { flex-wrap: wrap; }
-  .top-search input { flex-basis: 100%; width: 100%; }
-  .planet-one { width: 48px; height: 48px; }
-  .planet-two { width: 38px; height: 38px; }
-  #googleSearch { padding: 7px; }
+  .navbar {
+    justify-content: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  nav a {
+    padding: 9px;
+    font-size: 12px;
+  }
+
+  .search-form {
+    flex-wrap: wrap;
+  }
+
+  .search-form input {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  .planet-one {
+    width: 45px;
+    height: 45px;
+  }
+
+  .planet-two {
+    width: 35px;
+    height: 35px;
+  }
+
+  #browserFrame {
+    height: 60vh;
+    min-height: 300px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -413,208 +415,224 @@ footer {
   <div class="navbar">
     <div class="logo">☯ SATYA <span>YUME</span></div>
     <nav>
-      <a href="#home">⌂ ホーム</a>
-      <a href="#games">🎮 ゲーム</a>
-      <a href="#search">🔎 Search</a>
-      <a href="#chat">💬 チャット</a>
-      <a href="#videos">▶ ビデオ</a>
-      <a href="#ai">✧ AI</a>
-      <a href="#apps">▦ アプリ</a>
+      <a href="#home">⌂ Home</a>
+      <a href="#search">🌐 Search</a>
+      <a href="#games">🎮 Games</a>
+      <a href="#apps">▦ Apps</a>
+      <a href="#about">✨ About</a>
     </nav>
   </div>
 </header>
 
 <main>
   <section id="home" class="hero">
-    <div class="eyebrow">WELCOME TO YOUR UNIVERSE</div>
+    <div class="eyebrow">✦ YOUR UNIVERSE OF DISCOVERY ✦</div>
     <h1>SATYA <span>YUME</span></h1>
     <p>夢を追え — Chase your dreams among the stars.</p>
 
-    <form class="top-search" id="topSearch">
-      <input id="topQuery" type="search"
-        placeholder="Search the web..."
-        aria-label="Search the web" required>
-      <button class="primary" type="submit">Search ↓</button>
+    <form class="search-form" id="searchForm">
+      <input id="searchInput" type="search"
+        placeholder="Search the web or enter a website..."
+        aria-label="Search the web or enter a website" required>
+      <button class="primary" type="submit">🔎 Search</button>
     </form>
-    <div class="note">Search results appear below, inside SATYA YUME.</div>
-  </section>
-
-  <section id="search" class="search-panel">
-    <div class="search-panel-head">
-      <h2>🔎 SATYA YUME Search</h2>
-      <p>Search in this panel using Google Programmable Search.</p>
-    </div>
-    <div id="googleSearch">
-      <div class="gcse-search"></div>
+    <div class="note">
+      Try searching for a website or entering its address.
     </div>
   </section>
 
-  <section id="games">
-    <h2 class="section-title"><span>🎮</span> Game Universe</h2>
+  <section id="browserPanel" class="panel" hidden>
+    <div class="browser-toolbar">
+      <strong id="browserTitle">SATYA YUME Browser</strong>
+      <button type="button" onclick="closeBrowser()">✕ Close</button>
+      <button type="button" onclick="openSeparately()">↗ Open separately</button>
+    </div>
+
+    <iframe id="browserFrame"
+      title="SATYA YUME website viewer"
+      src="about:blank"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+
+    <p class="browser-note">
+      If a website refuses to load, it may block embedded viewing.
+      Use “Open separately” if you want to visit it in another tab.
+    </p>
+  </section>
+
+  <section id="search" class="panel">
+    <h2>🌐 Spaceport — Websites</h2>
     <div class="grid">
       <article class="card">
-        <div class="emoji">🕹️</div><h3>Poki</h3>
-        <p>Explore a collection of online games.</p>
-        <a href="https://poki.com/" target="_blank" rel="noopener">Play ↗</a>
+        <div class="emoji">📚</div>
+        <h3>Wikipedia</h3>
+        <button onclick="showSite('https://www.wikipedia.org/', 'Wikipedia')">Open here</button>
       </article>
+
       <article class="card">
-        <div class="emoji">🎯</div><h3>CrazyGames</h3>
-        <p>Discover action, racing, and puzzle games.</p>
-        <a href="https://www.crazygames.com/" target="_blank" rel="noopener">Play ↗</a>
+        <div class="emoji">▶️</div>
+        <h3>YouTube</h3>
+        <button onclick="showSite('https://www.youtube.com/', 'YouTube')">Open here</button>
       </article>
+
       <article class="card">
-        <div class="emoji">♟️</div><h3>Lichess</h3>
-        <p>Play chess and practice your strategy.</p>
-        <a href="https://lichess.org/" target="_blank" rel="noopener">Play ↗</a>
+        <div class="emoji">🪐</div>
+        <h3>NASA</h3>
+        <button onclick="showSite('https://www.nasa.gov/', 'NASA')">Open here</button>
       </article>
+
       <article class="card">
-        <div class="emoji">🧩</div><h3>Math Playground</h3>
-        <p>Try math games and brain challenges.</p>
-        <a href="https://www.mathplayground.com/" target="_blank" rel="noopener">Explore ↗</a>
+        <div class="emoji">🧩</div>
+        <h3>Scratch</h3>
+        <button onclick="showSite('https://scratch.mit.edu/', 'Scratch')">Open here</button>
       </article>
+
       <article class="card">
-        <div class="emoji">🎨</div><h3>Scratch</h3>
-        <p>Create stories, animations, and games.</p>
-        <a href="https://scratch.mit.edu/" target="_blank" rel="noopener">Create ↗</a>
+        <div class="emoji">🧠</div>
+        <h3>Coolmath Games</h3>
+        <button onclick="showSite('https://www.coolmathgames.com/', 'Coolmath Games')">Open here</button>
       </article>
+
       <article class="card">
-        <div class="emoji">🧱</div><h3>Roblox</h3>
-        <p>Explore user-created experiences.</p>
-        <a href="https://www.roblox.com/" target="_blank" rel="noopener">Explore ↗</a>
-      </article>
-      <article class="card">
-        <div class="emoji">🧠</div><h3>ChessKid</h3>
-        <p>Learn chess skills and tactics.</p>
-        <a href="https://www.chesskid.com/" target="_blank" rel="noopener">Learn ↗</a>
-      </article>
-      <article class="card">
-        <div class="emoji">🎮</div><h3>Coolmath Games</h3>
-        <p>Play puzzles and logic games.</p>
-        <a href="https://www.coolmathgames.com/" target="_blank" rel="noopener">Play ↗</a>
+        <div class="emoji">🎓</div>
+        <h3>Khan Academy</h3>
+        <button onclick="showSite('https://www.khanacademy.org/', 'Khan Academy')">Open here</button>
       </article>
     </div>
   </section>
 
-  <section id="apps">
-    <h2 class="section-title"><span>▦</span> App Galaxy</h2>
+  <section id="games" class="panel">
+    <h2>🎮 Game Universe</h2>
     <div class="grid">
       <article class="card">
-        <div class="emoji">📚</div><h3>Wikipedia</h3>
-        <p>Look up information and learn something new.</p>
-        <a href="https://www.wikipedia.org/" target="_blank" rel="noopener">Open ↗</a>
+        <div class="emoji">🕹️</div>
+        <h3>Poki</h3>
+        <button onclick="showSite('https://poki.com/', 'Poki')">Open here</button>
       </article>
+
       <article class="card">
-        <div class="emoji">🎓</div><h3>Khan Academy</h3>
-        <p>Practice math and other school subjects.</p>
-        <a href="https://www.khanacademy.org/" target="_blank" rel="noopener">Learn ↗</a>
+        <div class="emoji">🎯</div>
+        <h3>CrazyGames</h3>
+        <button onclick="showSite('https://www.crazygames.com/', 'CrazyGames')">Open here</button>
       </article>
+
       <article class="card">
-        <div class="emoji">🚀</div><h3>NASA</h3>
-        <p>Explore planets, space, and missions.</p>
-        <a href="https://www.nasa.gov/" target="_blank" rel="noopener">Explore ↗</a>
+        <div class="emoji">♟️</div>
+        <h3>Lichess</h3>
+        <button onclick="showSite('https://lichess.org/', 'Lichess')">Open here</button>
       </article>
+
       <article class="card">
-        <div class="emoji">🌍</div><h3>Google Earth</h3>
-        <p>Explore places around the world.</p>
-        <a href="https://earth.google.com/" target="_blank" rel="noopener">Explore ↗</a>
+        <div class="emoji">🧱</div>
+        <h3>Roblox</h3>
+        <button onclick="showSite('https://www.roblox.com/', 'Roblox')">Open here</button>
+      </article>
+
+      <article class="card">
+        <div class="emoji">♟️</div>
+        <h3>ChessKid</h3>
+        <button onclick="showSite('https://www.chesskid.com/', 'ChessKid')">Open here</button>
+      </article>
+
+      <article class="card">
+        <div class="emoji">🧮</div>
+        <h3>Math Playground</h3>
+        <button onclick="showSite('https://www.mathplayground.com/', 'Math Playground')">Open here</button>
       </article>
     </div>
   </section>
 
-  <section id="chat">
-    <h2 class="section-title"><span>💬</span> Chat Zone</h2>
+  <section id="apps" class="panel">
+    <h2>🚀 App Galaxy</h2>
     <div class="grid">
       <article class="card">
-        <div class="emoji">💌</div><h3>Google Messages</h3>
-        <p>Open Google Messages for the web.</p>
-        <a href="https://messages.google.com/web/" target="_blank" rel="noopener">Open ↗</a>
+        <div class="emoji">🌍</div>
+        <h3>Google Earth</h3>
+        <button onclick="showSite('https://earth.google.com/', 'Google Earth')">Open here</button>
       </article>
+
       <article class="card">
-        <div class="emoji">🌐</div><h3>Google Translate</h3>
-        <p>Translate words and sentences.</p>
-        <a href="https://translate.google.com/" target="_blank" rel="noopener">Translate ↗</a>
+        <div class="emoji">🌐</div>
+        <h3>Google Translate</h3>
+        <button onclick="showSite('https://translate.google.com/', 'Google Translate')">Open here</button>
+      </article>
+
+      <article class="card">
+        <div class="emoji">🤖</div>
+        <h3>ChatGPT</h3>
+        <button onclick="showSite('https://chatgpt.com/', 'ChatGPT')">Open here</button>
+      </article>
+
+      <article class="card">
+        <div class="emoji">✨</div>
+        <h3>Google Gemini</h3>
+        <button onclick="showSite('https://gemini.google.com/', 'Google Gemini')">Open here</button>
       </article>
     </div>
   </section>
 
-  <section id="videos">
-    <h2 class="section-title"><span>▶</span> Video Galaxy</h2>
-    <div class="grid">
-      <article class="card">
-        <div class="emoji">📺</div><h3>YouTube</h3>
-        <p>Watch videos and tutorials.</p>
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener">Watch ↗</a>
-      </article>
-      <article class="card">
-        <div class="emoji">🎞️</div><h3>Learning Videos</h3>
-        <p>Find educational videos and lessons.</p>
-        <a href="https://www.youtube.com/results?search_query=educational+videos" target="_blank" rel="noopener">Explore ↗</a>
-      </article>
-    </div>
-  </section>
-
-  <section id="ai">
-    <h2 class="section-title"><span>✧</span> AI Galaxy</h2>
-    <div class="grid">
-      <article class="card">
-        <div class="emoji">🤖</div><h3>ChatGPT</h3>
-        <p>Ask questions, brainstorm, and learn.</p>
-        <a href="https://chatgpt.com/" target="_blank" rel="noopener">Open ↗</a>
-      </article>
-      <article class="card">
-        <div class="emoji">✨</div><h3>Google Gemini</h3>
-        <p>Explore Google's AI assistant.</p>
-        <a href="https://gemini.google.com/" target="_blank" rel="noopener">Open ↗</a>
-      </article>
-    </div>
-  </section>
-
-  <section class="about">
-    <h2>🌠 About SATYA YUME</h2>
+  <section id="about" class="panel about">
+    <h2>✨ About SATYA YUME</h2>
     <p>
       Welcome to SATYA YUME, your galaxy-themed launchpad.
-      Explore games, learning tools, videos, and helpful websites
-      surrounded by moving stars, glowing planets, and floating cards.
+      Explore websites, games, and learning tools surrounded by
+      moving stars, glowing planets, and floating cards.
     </p>
-    <p>Keep exploring. Keep learning. Chase your dreams. ✨</p>
+    <p>Keep exploring. Keep learning. Chase your dreams. 🌌</p>
   </section>
 </main>
 
 <footer>SATYA YUME • 夢を追え • Explore Your Universe 🌌</footer>
 
 <script>
-/* Send the top search query to the embedded Google search */
-document.getElementById("topSearch").addEventListener("submit", function(event) {
-  event.preventDefault();
+let currentSite = "";
 
-  const query = document.getElementById("topQuery").value.trim();
-  if (!query) return;
+function showSite(url, title) {
+  currentSite = url;
 
-  document.getElementById("search").scrollIntoView({
+  const panel = document.getElementById("browserPanel");
+  document.getElementById("browserTitle").textContent = title;
+  document.getElementById("browserFrame").src = url;
+  panel.hidden = false;
+
+  panel.scrollIntoView({
     behavior: "smooth",
     block: "start"
   });
+}
 
-  let attempts = 0;
+function closeBrowser() {
+  document.getElementById("browserFrame").src = "about:blank";
+  document.getElementById("browserPanel").hidden = true;
+}
 
-  const timer = setInterval(function() {
-    attempts++;
+function openSeparately() {
+  if (currentSite) {
+    window.open(currentSite, "_blank", "noopener");
+  }
+}
 
-    const input = document.querySelector("#googleSearch input.gsc-input");
-    const button = document.querySelector(
-      "#googleSearch button.gsc-search-button-v2"
-    );
+/* Search: website address opens in the viewer;
+   ordinary search terms show results in the viewer. */
+document.getElementById("searchForm").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-    if (input && button) {
-      input.value = query;
-      input.dispatchEvent(new Event("input", {bubbles: true}));
-      input.dispatchEvent(new Event("change", {bubbles: true}));
-      clearInterval(timer);
-      button.click();
-    }
+  const query = document.getElementById("searchInput").value.trim();
+  if (!query) return;
 
-    if (attempts >= 30) clearInterval(timer);
-  }, 300);
+  let url;
+
+  if (/^https?:\/\//i.test(query)) {
+    url = query;
+  } else if (/^[\w-]+\.[a-z]{2,}(\/.*)?$/i.test(query)) {
+    url = "https://" + query;
+  } else {
+    url = "https://www.google.com/search?q=" + encodeURIComponent(query);
+  }
+
+  showSite(url, query);
 });
 
 /* Moving galaxy stars */
@@ -624,17 +642,19 @@ let stars = [];
 
 function resizeCanvas() {
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
+
   canvas.width = window.innerWidth * ratio;
   canvas.height = window.innerHeight * ratio;
   canvas.style.width = window.innerWidth + "px";
   canvas.style.height = window.innerHeight + "px";
+
   ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
 
-  stars = Array.from({length: 145}, () => ({
+  stars = Array.from({length: 150}, () => ({
     x: Math.random() * window.innerWidth,
     y: Math.random() * window.innerHeight,
-    size: Math.random() * 1.8 + .3,
-    speed: Math.random() * .45 + .08,
+    size: Math.random() * 1.7 + .3,
+    speed: Math.random() * .4 + .08,
     phase: Math.random() * Math.PI * 2
   }));
 }
@@ -652,8 +672,9 @@ function animateStars() {
       star.x = Math.random() * window.innerWidth;
     }
 
-    const opacity = .4 + (Math.sin(star.phase) + 1) * .3;
-    ctx.fillStyle = `rgba(190,220,255,${opacity})`;
+    ctx.fillStyle = "rgba(190,220,255," +
+      (0.4 + (Math.sin(star.phase) + 1) * .3) + ")";
+
     ctx.beginPath();
     ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
     ctx.fill();
