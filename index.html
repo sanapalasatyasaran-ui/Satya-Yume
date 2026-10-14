@@ -3,15 +3,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SATYA YUME | 夢を追え</title>
+
+<!-- Your Google Programmable Search Engine -->
+<script async src="https://cse.google.com/cse.js?cx=715f4c4df6f294b78"></script>
 
 <style>
 :root {
   --blue: #36cfff;
   --purple: #9b72ff;
-  --panel: rgba(10, 20, 45, .91);
-  --border: #285078;
+  --panel: rgba(10, 20, 45, .92);
+  --border: #29476d;
 }
 
 * { box-sizing: border-box; }
@@ -22,8 +25,8 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-family: Arial, sans-serif;
   background: #050817;
 }
 
@@ -43,7 +46,7 @@ body {
   pointer-events: none;
   background:
     radial-gradient(ellipse at 15% 25%, #512d9855, transparent 45%),
-    radial-gradient(ellipse at 85% 65%, #086eb344, transparent 48%);
+    radial-gradient(ellipse at 85% 70%, #086eb344, transparent 48%);
 }
 
 .planet {
@@ -55,39 +58,39 @@ body {
 }
 
 .planet-one {
-  top: 27%;
+  width: 80px;
+  height: 80px;
+  top: 30%;
   left: 3%;
-  width: 85px;
-  height: 85px;
-  background: radial-gradient(circle at 30% 25%, #e4caff, #8650cc 45%, #21103c);
+  background: radial-gradient(circle at 30% 25%, #e4caff, #8650cc 48%, #21103c);
   box-shadow: 0 0 35px #925bff66;
 }
 
 .planet-two {
+  width: 62px;
+  height: 62px;
   right: 3%;
   bottom: 15%;
-  width: 65px;
-  height: 65px;
   background: radial-gradient(circle at 30% 25%, #a7f7ff, #2879b8 55%, #102044);
   animation-delay: -4s;
 }
 
 @keyframes float {
-  from { transform: translate(0, 0) rotate(0deg); }
-  to { transform: translate(25px, -30px) rotate(15deg); }
+  from { transform: translate(0, 0); }
+  to { transform: translate(20px, -25px); }
 }
 
 header {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(5, 8, 23, .94);
+  background: rgba(5, 8, 23, .95);
   border-bottom: 1px solid #25436a;
   backdrop-filter: blur(12px);
 }
 
 .navbar {
-  max-width: 1450px;
+  max-width: 1400px;
   margin: auto;
   padding: 14px 5%;
   display: flex;
@@ -107,27 +110,29 @@ header {
 
 nav {
   display: flex;
-  gap: 8px;
   flex-wrap: wrap;
+  gap: 8px;
 }
 
 nav a {
-  padding: 11px 13px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: #101e3b;
+  display: inline-block;
+  padding: 11px 12px;
   color: white;
   text-decoration: none;
+  background: #101e3b;
+  border: 1px solid var(--border);
+  border-radius: 10px;
   transition: .25s;
 }
 
 nav a:hover {
   background: #17395e;
   border-color: var(--blue);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 main {
+  width: 100%;
   max-width: 1250px;
   margin: auto;
   padding: 25px 20px 60px;
@@ -148,7 +153,7 @@ section { scroll-margin-top: 100px; }
 
 h1 {
   margin: 18px 0;
-  font-size: clamp(40px, 7vw, 78px);
+  font-size: clamp(40px, 7vw, 76px);
   letter-spacing: 2px;
   animation: glow 3s ease-in-out infinite alternate;
 }
@@ -157,51 +162,50 @@ h1 span { color: var(--blue); }
 
 @keyframes glow {
   from { text-shadow: 0 0 10px #36cfff44; }
-  to { text-shadow: 0 0 30px #9b72ffcc, 0 0 50px #36cfff55; }
+  to { text-shadow: 0 0 30px #9b72ffbb, 0 0 50px #36cfff44; }
 }
 
-.hero p {
+.hero > p {
   color: #bdc9e5;
   line-height: 1.7;
 }
 
-.search-box {
-  max-width: 800px;
-  margin: 28px auto 12px;
+.top-search {
   display: flex;
-  gap: 9px;
-  padding: 10px;
-  border: 1px solid var(--blue);
-  border-radius: 15px;
+  gap: 8px;
+  width: 100%;
+  max-width: 760px;
+  margin: 28px auto 12px;
+  padding: 9px;
   background: var(--panel);
-  box-shadow: 0 0 28px #1678b522;
+  border: 1px solid var(--blue);
+  border-radius: 14px;
+  box-shadow: 0 0 25px #1678b522;
 }
 
-.search-box input {
+.top-search input {
   flex: 1;
+  width: 0;
   min-width: 0;
   padding: 14px;
-  background: #050b1b;
   color: white;
+  background: #050b1b;
   border: 1px solid #294667;
-  border-radius: 9px;
+  border-radius: 8px;
   font-size: 16px;
   outline: none;
 }
 
-.search-box input:focus { border-color: var(--blue); }
+.top-search input:focus { border-color: var(--blue); }
 
 .primary {
-  padding: 13px 20px;
+  padding: 12px 18px;
   color: white;
-  font-size: 15px;
-  border: 1px solid #69dfff;
-  border-radius: 9px;
   background: linear-gradient(120deg, #176ba8, #6944b8);
+  border: 1px solid #69dfff;
+  border-radius: 8px;
   cursor: pointer;
 }
-
-.primary:hover { filter: brightness(1.2); }
 
 .note {
   color: #91a7c9;
@@ -217,7 +221,7 @@ h1 span { color: var(--blue); }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 205px), 1fr));
   gap: 16px;
 }
 
@@ -225,9 +229,9 @@ h1 span { color: var(--blue); }
   min-width: 0;
   padding: 21px;
   border: 1px solid #263f69;
-  border-radius: 17px;
+  border-radius: 16px;
   background: linear-gradient(145deg, #142448ee, #0a1127f2);
-  transition: transform .3s, border-color .3s, box-shadow .3s;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
   animation: cardFloat 5s ease-in-out infinite alternate;
 }
 
@@ -236,16 +240,16 @@ h1 span { color: var(--blue); }
 
 @keyframes cardFloat {
   from { transform: translateY(0); }
-  to { transform: translateY(-5px); }
+  to { transform: translateY(-4px); }
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-7px);
   border-color: var(--blue);
-  box-shadow: 0 0 25px #36cfff25;
+  box-shadow: 0 0 24px #36cfff25;
 }
 
-.emoji { font-size: 31px; }
+.emoji { font-size: 30px; }
 
 .card h3 { margin: 12px 0 8px; }
 
@@ -265,8 +269,13 @@ h1 span { color: var(--blue); }
 
 .card a:hover { text-decoration: underline; }
 
+/* Search panel: all widths stay inside the panel */
 .search-panel {
-  margin-top: 40px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 30px 0 40px;
   overflow: hidden;
   border: 1px solid var(--blue);
   border-radius: 16px;
@@ -275,11 +284,14 @@ h1 span { color: var(--blue); }
 }
 
 .search-panel-head {
-  padding: 20px;
+  padding: 18px;
   border-bottom: 1px solid #294a70;
 }
 
-.search-panel-head h2 { margin: 0 0 8px; }
+.search-panel-head h2 {
+  margin: 0 0 8px;
+  font-size: 23px;
+}
 
 .search-panel-head p {
   margin: 0;
@@ -288,46 +300,67 @@ h1 span { color: var(--blue); }
   line-height: 1.6;
 }
 
-.gcse-search {
-  padding: 18px;
-  min-height: 100px;
-  color: #fff;
+#googleSearch {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
 }
 
-/* Make the Google search box fit the galaxy design */
-.gsc-control-cse {
-  background: transparent !important;
-  border: 0 !important;
+#googleSearch .gsc-control-cse,
+#googleSearch .gsc-control-wrapper-cse {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
   padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-sizing: border-box !important;
 }
 
-.gsc-control-cse * { box-sizing: border-box; }
+#googleSearch table,
+#googleSearch td,
+#googleSearch .gsc-table-result,
+#googleSearch .gsc-input-box,
+#googleSearch .gsc-search-box,
+#googleSearch .gsc-results-wrapper-visible {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
 
-.gsc-search-button-v2 {
-  background: #176ba8 !important;
-  border-color: #36cfff !important;
+#googleSearch .gsc-input-box {
+  border: 1px solid var(--blue) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+#googleSearch input.gsc-input {
+  width: 100% !important;
+  min-width: 0 !important;
+  color: #111827 !important;
+  font-size: 16px !important;
+}
+
+#googleSearch .gsc-search-button-v2 {
+  padding: 12px !important;
+  background: linear-gradient(120deg, #176ba8, #6944b8) !important;
+  border: 1px solid var(--blue) !important;
   border-radius: 8px !important;
 }
 
-.gsc-input-box {
-  border-radius: 8px !important;
-}
-
-.gsc-webResult.gsc-result,
-.gsc-results .gsc-imageResult {
+#googleSearch .gsc-webResult.gsc-result,
+#googleSearch .gsc-results .gsc-imageResult {
+  overflow-wrap: anywhere;
+  border: 1px solid #294667 !important;
+  border-radius: 9px !important;
   background: #101e3b !important;
-  border-color: #294667 !important;
-  border-radius: 8px !important;
 }
 
-.gsc-webResult.gsc-result:hover {
-  border-color: #36cfff !important;
-}
-
-.gsc-webResult div,
-.gsc-webResult a,
-.gsc-webResult .gs-snippet {
-  color: #dce8ff !important;
+#googleSearch .gsc-webResult a,
+#googleSearch .gsc-webResult .gs-snippet,
+#googleSearch .gsc-webResult .gs-visibleUrl {
+  overflow-wrap: anywhere;
 }
 
 .about {
@@ -353,10 +386,11 @@ footer {
   nav { justify-content: center; }
   nav a { padding: 9px; font-size: 12px; }
   .hero { padding-top: 35px; }
-  .search-box { flex-wrap: wrap; }
-  .search-box input { flex-basis: 100%; }
+  .top-search { flex-wrap: wrap; }
+  .top-search input { flex-basis: 100%; width: 100%; }
   .planet-one { width: 48px; height: 48px; }
   .planet-two { width: 38px; height: 38px; }
+  #googleSearch { padding: 7px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -367,9 +401,6 @@ footer {
   }
 }
 </style>
-
-<!-- Google Programmable Search Engine -->
-<script async src="https://cse.google.com/cse.js?cx=715f4c4df6f294b78"></script>
 </head>
 
 <body>
@@ -399,9 +430,10 @@ footer {
     <h1>SATYA <span>YUME</span></h1>
     <p>夢を追え — Chase your dreams among the stars.</p>
 
-    <form class="search-box" id="topSearch">
+    <form class="top-search" id="topSearch">
       <input id="topQuery" type="search"
-        placeholder="Search the web..." aria-label="Search the web" required>
+        placeholder="Search the web..."
+        aria-label="Search the web" required>
       <button class="primary" type="submit">Search ↓</button>
     </form>
     <div class="note">Search results appear below, inside SATYA YUME.</div>
@@ -410,9 +442,11 @@ footer {
   <section id="search" class="search-panel">
     <div class="search-panel-head">
       <h2>🔎 SATYA YUME Search</h2>
-      <p>Search the web without leaving this page. Results are provided by Google Programmable Search Engine.</p>
+      <p>Search in this panel using Google Programmable Search.</p>
     </div>
-    <div class="gcse-search"></div>
+    <div id="googleSearch">
+      <div class="gcse-search"></div>
+    </div>
   </section>
 
   <section id="games">
@@ -512,7 +546,7 @@ footer {
         <a href="https://www.youtube.com/" target="_blank" rel="noopener">Watch ↗</a>
       </article>
       <article class="card">
-        <div class="emoji">🎞️</div><h3>YouTube Learning</h3>
+        <div class="emoji">🎞️</div><h3>Learning Videos</h3>
         <p>Find educational videos and lessons.</p>
         <a href="https://www.youtube.com/results?search_query=educational+videos" target="_blank" rel="noopener">Explore ↗</a>
       </article>
@@ -546,48 +580,44 @@ footer {
   </section>
 </main>
 
-<footer>
-  SATYA YUME • 夢を追え • Explore Your Universe 🌌
-</footer>
+<footer>SATYA YUME • 夢を追え • Explore Your Universe 🌌</footer>
 
 <script>
-/* Connect the top search box to the embedded Google search box */
+/* Send the top search query to the embedded Google search */
 document.getElementById("topSearch").addEventListener("submit", function(event) {
   event.preventDefault();
 
   const query = document.getElementById("topQuery").value.trim();
   if (!query) return;
 
-  const searchInput = document.querySelector("#search .gsc-input input");
-  const searchButton = document.querySelector("#search .gsc-search-button");
+  document.getElementById("search").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
 
-  document.getElementById("search").scrollIntoView({behavior: "smooth"});
-
-  // Google loads its search controls asynchronously.
   let attempts = 0;
+
   const timer = setInterval(function() {
     attempts++;
 
-    const input = document.querySelector("#search .gsc-input input");
-    const button = document.querySelector("#search .gsc-search-button");
+    const input = document.querySelector("#googleSearch input.gsc-input");
+    const button = document.querySelector(
+      "#googleSearch button.gsc-search-button-v2"
+    );
 
     if (input && button) {
       input.value = query;
       input.dispatchEvent(new Event("input", {bubbles: true}));
       input.dispatchEvent(new Event("change", {bubbles: true}));
-      button.click();
       clearInterval(timer);
+      button.click();
     }
 
-    if (attempts >= 20) {
-      clearInterval(timer);
-      // If Google's search box has not loaded, fill the visible search box
-      // when it becomes available instead of opening a new tab.
-    }
+    if (attempts >= 30) clearInterval(timer);
   }, 300);
 });
 
-/* Animated moving stars */
+/* Moving galaxy stars */
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 let stars = [];
@@ -600,7 +630,7 @@ function resizeCanvas() {
   canvas.style.height = window.innerHeight + "px";
   ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
 
-  stars = Array.from({length: 150}, () => ({
+  stars = Array.from({length: 145}, () => ({
     x: Math.random() * window.innerWidth,
     y: Math.random() * window.innerHeight,
     size: Math.random() * 1.8 + .3,
