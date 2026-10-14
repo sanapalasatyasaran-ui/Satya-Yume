@@ -4,361 +4,385 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SATYA YUME | 夢を追え</title>
+<title>SATYA YUME 🌌</title>
+
 <style>
-:root{--bg:#050817;--panel:#0c1730;--blue:#59caff;--text:#eef7ff;--muted:#9bb2d4}
-*{box-sizing:border-box}
-body{margin:0;color:var(--text);font-family:Arial,sans-serif;background:radial-gradient(ellipse at top,#182e65,#080d20 55%,#030610);min-height:100vh}
-header{position:sticky;top:0;z-index:5;background:#050817ed;border-bottom:1px solid #59caff55;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
-.brand{font-size:23px;font-weight:bold;color:white;text-decoration:none}
-.brand span{color:var(--blue)}
-nav{display:flex;gap:8px;flex-wrap:wrap}
-button,input{font:inherit}
-nav button,.btn{cursor:pointer;border:1px solid #59caff55;background:#101e3c;color:white;padding:10px 13px;border-radius:10px}
-nav button:hover,.btn:hover{background:#1c3c70;border-color:var(--blue)}
-nav button.active{border-color:var(--blue);background:#18365c}
-main{width:min(1150px,92%);margin:auto}
-.page{display:none}
-.page.active{display:block}
-.hero{text-align:center;padding:65px 0 25px}
-.eyebrow{color:#9ebde9;letter-spacing:4px;font-size:11px}
-h1{font-size:clamp(35px,7vw,70px);margin:18px 0 8px;color:#d8f4ff;text-shadow:0 0 25px #419dff}
-.jp-title{font-family:serif;font-size:36px;color:var(--blue);margin:8px}
-.tagline{letter-spacing:3px;color:#b6c9e7;font-size:12px;margin:20px 0 30px}
-.search{display:flex;gap:8px;max-width:700px;margin:0 auto;border:1px solid var(--blue);border-radius:17px;padding:8px;background:#050b1c;box-shadow:0 0 28px #287bff30}
-.search input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:white;padding:12px}
-.search button{background:linear-gradient(135deg,#8beaff,#459bff);color:#061126;border:0;border-radius:12px;padding:0 20px;cursor:pointer;font-weight:bold}
-.hint{font-size:12px;color:var(--muted);margin:12px}
-.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:850px;margin:30px auto}
-.tile{padding:22px 8px;border:1px solid #59caff40;border-radius:16px;background:#0c1730;color:white;cursor:pointer}
-.tile:hover{transform:translateY(-3px);border-color:var(--blue)}
-.tile .emoji{display:block;font-size:30px;margin-bottom:9px}
-.tile small{display:block;color:var(--muted);margin-top:5px}
-.panel{margin:25px 0;padding:22px;border:1px solid #59caff30;border-radius:18px;background:#071126d9}
-.panel h2{margin-top:0;font-size:20px}
-.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.app-card{display:flex;gap:10px;align-items:center;padding:13px;border:1px solid #59caff30;background:#0b1933;border-radius:12px;color:white;text-decoration:none;min-width:0}
-.app-card:hover{border-color:var(--blue)}
-.app-card .emoji{font-size:25px}
-.app-card b{display:block;font-size:13px}
-.app-card small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
-.page-intro{text-align:center;padding:38px 0 20px}
-.page-intro h1{font-size:clamp(30px,5vw,48px)}
-.page-intro p{color:var(--muted)}
-.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0}
-.filters button.active{background:#1b4773;border-color:var(--blue)}
-.game-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
-.game-card{display:flex;flex-direction:column;padding:17px;border:1px solid #59caff35;border-radius:15px;background:#0b1730;min-height:185px}
-.game-card .emoji{font-size:30px}
-.game-card h3{margin:10px 0 6px}
-.game-card p{color:var(--muted);font-size:13px;flex:1}
-#browserView{display:none;margin:25px 0;border:1px solid var(--blue);border-radius:15px;overflow:hidden;background:#071126}
-#browserView.visible{display:block}
-.browser-toolbar{display:flex;gap:8px;padding:10px;background:#0c1730;flex-wrap:wrap}
-#browserAddress{flex:1;min-width:160px;background:#050817;border:1px solid #59caff55;border-radius:9px;padding:11px;color:white}
-#browserFrame{width:100%;height:65vh;min-height:400px;background:white;border:0;display:block}
-.note{font-size:12px;color:var(--muted);padding:12px 15px;margin:0}
-#gameResult{margin:20px 0;padding:18px;border-radius:15px;background:#0c1730;border:1px solid #59caff45}
-#gameResult input{padding:10px;max-width:180px;border-radius:8px;border:1px solid #59caff55;background:#050817;color:white}
-footer{text-align:center;color:#7794bb;padding:30px 10px;font-size:12px}
-@media(max-width:750px){header{position:relative}.tiles{grid-template-columns:repeat(3,1fr)}.cards,.game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:450px){.tiles{grid-template-columns:repeat(2,1fr)}.cards,.game-grid{grid-template-columns:1fr}.hero{padding-top:40px}}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: #050316;
+}
+
+.space {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 20% 30%, #521c83 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 70%, #073c70 0%, transparent 40%),
+    linear-gradient(135deg, #03020c, #100522, #020a1d);
+  background-size: 200% 200%;
+  animation: galaxy 18s ease-in-out infinite alternate;
+}
+
+@keyframes galaxy {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 100%; }
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.planet {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  animation: float 8s ease-in-out infinite;
+}
+
+.planet-one {
+  width: 90px;
+  height: 90px;
+  top: 18%;
+  right: 6%;
+  background: radial-gradient(circle at 30% 30%, #f0abfc, #7c3aed 60%, #24104a);
+  box-shadow: 0 0 45px #a855f766;
+}
+
+.planet-two {
+  width: 55px;
+  height: 55px;
+  bottom: 15%;
+  left: 5%;
+  background: radial-gradient(circle at 30% 30%, #a5f3fc, #0284c7 65%, #082f49);
+  box-shadow: 0 0 35px #38bdf855;
+  animation-delay: -3s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-24px) translateX(12px); }
+}
+
+header {
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.logo {
+  font-size: clamp(32px, 6vw, 54px);
+  font-weight: 900;
+  letter-spacing: 5px;
+  background: linear-gradient(90deg, #c4b5fd, #67e8f9, #f0abfc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 35px #8b5cf633;
+}
+
+.subtitle {
+  color: #c4b5fd;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+}
+
+nav a, button {
+  color: white;
+  text-decoration: none;
+  background: #ffffff12;
+  border: 1px solid #a78bfa66;
+  border-radius: 12px;
+  padding: 11px 16px;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+nav a:hover, button:hover {
+  transform: translateY(-3px);
+  background: #8b5cf644;
+  box-shadow: 0 0 20px #8b5cf655;
+}
+
+main {
+  width: min(1050px, 92%);
+  margin: 20px auto 70px;
+}
+
+.panel {
+  padding: 24px;
+  margin: 22px 0;
+  border: 1px solid #a78bfa55;
+  border-radius: 22px;
+  background: #0c0925bb;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px #0005;
+}
+
+h2 {
+  color: #c4b5fd;
+}
+
+.search {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.search input {
+  flex: 1;
+  min-width: 180px;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #8b5cf6;
+  background: #050316;
+  color: white;
+  font-size: 16px;
+}
+
+.search input:focus {
+  outline: 2px solid #38bdf8;
+  box-shadow: 0 0 20px #38bdf855;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  min-height: 115px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 18px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  border-radius: 18px;
+  border: 1px solid #8b5cf666;
+  background: linear-gradient(135deg, #25114aee, #091c3bee);
+  animation: cardFloat 5s ease-in-out infinite;
+  transition: box-shadow .3s, border-color .3s;
+}
+
+.card:nth-child(3n) { animation-delay: -2s; }
+.card:nth-child(2n) { animation-delay: -1s; }
+
+@keyframes cardFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -7px; }
+}
+
+.card:hover {
+  translate: 0 -8px;
+  border-color: #67e8f9;
+  box-shadow: 0 0 28px #8b5cf655;
+}
+
+.emoji {
+  font-size: 30px;
+}
+
+#results a {
+  color: #67e8f9;
+  display: block;
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  text-align: center;
+  color: #a5b4fc;
+  padding: 25px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
 </style>
 </head>
+
 <body>
+<div class="space"></div>
+<canvas id="stars"></canvas>
+<div class="planet planet-one"></div>
+<div class="planet planet-two"></div>
+
 <header>
-<a href="#" class="brand" onclick="showPage('home');return false">☯ SATYA <span>YUME</span></a>
-<nav>
-<button class="active" data-page="home" onclick="showPage('home')">⌂ ホーム</button>
-<button data-page="games" onclick="showPage('games')">🎮 ゲーム</button>
-<button data-page="chat" onclick="showPage('chat')">💬 チャット</button>
-<button data-page="video" onclick="showPage('video')">▶ ビデオ</button>
-<button data-page="ai" onclick="showPage('ai')">✧ AI</button>
-<button data-page="apps" onclick="showPage('apps')">▦ アプリ</button>
-</nav>
+  <div class="logo">SATYA YUME</div>
+  <p class="subtitle">✦ YOUR UNIVERSE OF DISCOVERY ✦</p>
 </header>
+
+<nav>
+  <a href="#home">🏠 Home</a>
+  <a href="#web">🌐 Web Search</a>
+  <a href="#games">🎮 Games</a>
+  <a href="#about">✨ About</a>
+</nav>
+
 <main>
-<section id="browserView">
-<div class="browser-toolbar">
-<button class="btn" onclick="closeBrowser()">← Home</button>
-<input id="browserAddress" placeholder="Search or enter a website address">
-<button class="btn" onclick="navigateBrowser()">Go ↗</button>
-<button class="btn" onclick="openCurrentInTab()">Open tab ↗</button>
-</div>
-<iframe id="browserFrame" title="SATYA YUME browsing panel" referrerpolicy="no-referrer"></iframe>
-<p class="note">If a website blocks embedding, it may not appear here. Use Open tab if permitted. This page does not bypass school restrictions.</p>
-</section>
+  <section class="panel" id="home">
+    <h2>🚀 Explore the Universe</h2>
+    <p>Search the web, discover websites, and launch your favorite games.</p>
 
-<section id="home" class="page active">
-<div class="hero">
-<div class="eyebrow">A LITTLE UNIVERSE MADE FOR YOU</div>
-<h1>SATYA YUME</h1>
-<div class="jp-title">夢を追え</div>
-<div class="tagline">EXPLORE • PLAY • CREATE • BE YOU</div>
-<form class="search" id="searchForm">
-<input id="searchInput" placeholder="Search anything or enter a URL..." autocomplete="off" aria-label="Search the web">
-<button type="submit">SEARCH ➜</button>
-</form>
-<div class="hint">検索 • Search the web or enter a website address</div>
-<div class="tiles">
-<button class="tile" onclick="showPage('games')"><span class="emoji">🎮</span>ゲーム<small>Games</small></button>
-<button class="tile" onclick="showPage('chat')"><span class="emoji">💬</span>チャット<small>Chat</small></button>
-<button class="tile" onclick="showPage('video')"><span class="emoji">▶️</span>ビデオ<small>Videos</small></button>
-<button class="tile" onclick="showPage('ai')"><span class="emoji">✨</span>AI<small>Create</small></button>
-<button class="tile" onclick="showPage('apps')"><span class="emoji">▦</span>アプリ<small>Apps</small></button>
-</div>
-</div>
-<div class="panel"><h2>🔥 Popular Sites • 人気のサイト</h2><div class="cards" id="popularCards"></div></div>
-</section>
+    <form class="search" id="searchForm">
+      <input id="searchInput" type="search"
+        placeholder="Search the galaxy..."
+        aria-label="Search the web" required>
+      <button type="submit">🔍 Search</button>
+    </form>
 
-<section id="games" class="page">
-<div class="page-intro"><div class="eyebrow">遊ぼう • LET'S PLAY</div><h1>Game Library 🎮</h1><p>Find a game by name or category.</p></div>
-<div class="search"><input id="gameSearch" placeholder="Search games..." aria-label="Search games"></div>
-<div class="filters" id="gameFilters">
-<button class="btn active" data-filter="All">All Games</button>
-<button class="btn" data-filter="Built-in">Built-in</button>
-<button class="btn" data-filter="Arcade">Arcade</button>
-<button class="btn" data-filter="Puzzle">Puzzle</button>
-<button class="btn" data-filter="Sports">Sports</button>
-<button class="btn" data-filter="Strategy">Strategy</button>
-</div>
-<div class="game-grid" id="gameGrid"></div>
-<div id="gameResult">Choose a game to play.</div>
-</section>
+    <div id="results"></div>
+  </section>
 
-<section id="chat" class="page"><div class="page-intro"><h1>チャット / Chat</h1><p>Communication shortcuts</p></div><div class="cards" id="chatCards"></div></section>
-<section id="video" class="page"><div class="page-intro"><h1>ビデオ / Video</h1><p>Video shortcuts</p></div><div class="cards" id="videoCards"></div></section>
-<section id="ai" class="page"><div class="page-intro"><h1>AI Creative Space ✨</h1><p>Learn, design, and create</p></div><div class="cards" id="aiCards"></div></section>
-<section id="apps" class="page"><div class="page-intro"><h1>アプリ / Apps</h1><p>Your shortcuts in one place</p></div><div class="cards" id="allCards"></div></section>
+  <section class="panel" id="web">
+    <h2>🌐 Spaceport — Websites</h2>
+    <div class="grid">
+      <a class="card" href="https://www.wikipedia.org/" target="_blank" rel="noopener">
+        <span class="emoji">📚</span>Wikipedia
+      </a>
+      <a class="card" href="https://www.youtube.com/" target="_blank" rel="noopener">
+        <span class="emoji">▶️</span>YouTube
+      </a>
+      <a class="card" href="https://www.nasa.gov/" target="_blank" rel="noopener">
+        <span class="emoji">🪐</span>NASA
+      </a>
+      <a class="card" href="https://scratch.mit.edu/" target="_blank" rel="noopener">
+        <span class="emoji">🧩</span>Scratch
+      </a>
+      <a class="card" href="https://www.coolmathgames.com/" target="_blank" rel="noopener">
+        <span class="emoji">🧠</span>Coolmath Games
+      </a>
+      <a class="card" href="https://www.khanacademy.org/" target="_blank" rel="noopener">
+        <span class="emoji">🎓</span>Khan Academy
+      </a>
+    </div>
+  </section>
+
+  <section class="panel" id="games">
+    <h2>🎮 Galactic Game Zone</h2>
+    <div class="grid">
+      <a class="card" href="https://poki.com/" target="_blank" rel="noopener">
+        <span class="emoji">🕹️</span>Poki Games
+      </a>
+      <a class="card" href="https://www.crazygames.com/" target="_blank" rel="noopener">
+        <span class="emoji">🎯</span>CrazyGames
+      </a>
+      <a class="card" href="https://lichess.org/" target="_blank" rel="noopener">
+        <span class="emoji">♟️</span>Chess
+      </a>
+      <a class="card" href="https://www.chesskid.com/" target="_blank" rel="noopener">
+        <span class="emoji">👑</span>ChessKid
+      </a>
+      <a class="card" href="https://www.mathplayground.com/" target="_blank" rel="noopener">
+        <span class="emoji">🧮</span>Math Playground
+      </a>
+      <a class="card" href="https://www.roblox.com/" target="_blank" rel="noopener">
+        <span class="emoji">🌟</span>Roblox
+      </a>
+    </div>
+    <p>Some games may open in a new tab or require an account.</p>
+  </section>
+
+  <section class="panel" id="about">
+    <h2>✨ About SATYA YUME</h2>
+    <p>A galaxy-inspired space for searching, learning, and gaming.</p>
+    <p>Explore. Discover. Launch into something new. 🌌</p>
+  </section>
 </main>
-<footer>小さな一歩が、大きな夢をつくる • SATYA YUME</footer>
+
+<footer>✦ SATYA YUME · LOST IN SPACE, FOUND IN DISCOVERY ✦</footer>
 
 <script>
-const sites=[
-["🔎","Google","Search the web","https://www.google.com/"],
-["▶️","YouTube","Videos","https://www.youtube.com/"],
-["🎮","Roblox","Games","https://www.roblox.com/"],
-["🐙","GitHub","Code projects","https://github.com/"],
-["📚","Wikipedia","Learn about topics","https://www.wikipedia.org/"],
-["🎨","Canva","Design projects","https://www.canva.com/"],
-["🎓","Khan Academy","Learn and practice","https://www.khanacademy.org/"],
-["♟️","Chess.com","Play chess","https://www.chess.com/"],
-["🎵","Spotify","Music","https://open.spotify.com/"],
-["🐱","Scratch","Create games","https://scratch.mit.edu/"],
-["📝","Google Docs","Documents","https://docs.google.com/"],
-["🌎","Poki","Browser games","https://poki.com/"],
-["🧩","CrazyGames","Browser games","https://www.crazygames.com/"],
-["📁","Google Drive","Your files","https://drive.google.com/"],
-["✉️","Gmail","Email","https://mail.google.com/"],
-["📖","Coolmath Games","Games and puzzles","https://www.coolmathgames.com/"],
-["🔬","PhET","Science simulations","https://phet.colorado.edu/"],
-["⌨️","TypingClub","Typing practice","https://www.typingclub.com/"],
-["✨","Neal.fun","Fun web experiments","https://neal.fun/"],
-["♟️","Chess puzzles","Practice tactics","https://www.chess.com/puzzles/"]
-];
+/* Animated stars */
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+let stars = [];
 
-function renderCards(id,list){
- const el=document.getElementById(id);
- if(!el)return;
- el.innerHTML="";
- list.forEach(s=>{
-  const a=document.createElement("a");
-  a.className="app-card";
-  a.href=s[3];
-  a.target="_blank";
-  a.rel="noopener noreferrer";
-  a.innerHTML='<span class="emoji">'+s[0]+'</span><span><b>'+s[1]+'</b><small>'+s[2]+'</small></span>';
-  el.appendChild(a);
- });
-}
-renderCards("popularCards",sites.slice(0,8));
-renderCards("chatCards",sites.filter(s=>["Discord","Gmail","Google Docs"].includes(s[1])));
-renderCards("videoCards",sites.filter(s=>["YouTube","Spotify"].includes(s[1])));
-renderCards("aiCards",sites.filter(s=>["Canva","Khan Academy","Scratch","PhET"].includes(s[1])));
-renderCards("allCards",sites);
+function resizeStars() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = innerWidth * dpr;
+  canvas.height = innerHeight * dpr;
+  canvas.style.width = innerWidth + "px";
+  canvas.style.height = innerHeight + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-function showPage(id){
- document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));
- document.querySelectorAll("nav button[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
- document.getElementById("browserView").classList.remove("visible");
- window.scrollTo({top:0,behavior:"smooth"});
+  stars = Array.from({ length: 130 }, () => ({
+    x: Math.random() * innerWidth,
+    y: Math.random() * innerHeight,
+    r: Math.random() * 1.7 + 0.3,
+    speed: Math.random() * 0.35 + 0.08,
+    alpha: Math.random() * 0.8 + 0.2
+  }));
 }
 
-function getUrl(value){
- const q=value.trim();
- if(!q)return "";
- if(/^https?:\/\//i.test(q))return q;
- if(/^[\w-]+(\.[\w-]+)+(\/.*)?$/.test(q)&&!q.includes(" "))return "https://"+q;
- return "https://www.google.com/search?q="+encodeURIComponent(q);
-}
+function animateStars() {
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
 
-function navigateBrowser(){
- const input=document.getElementById("browserAddress");
- const url=getUrl(input.value);
- if(!url)return;
- input.value=url;
- document.getElementById("browserView").classList.add("visible");
- document.getElementById("browserFrame").src=url;
- document.getElementById("browserView").scrollIntoView({behavior:"smooth",block:"start"});
-}
+  for (const s of stars) {
+    s.y -= s.speed;
+    if (s.y < 0) {
+      s.y = innerHeight;
+      s.x = Math.random() * innerWidth;
+    }
 
-function openCurrentInTab(){
- const url=getUrl(document.getElementById("browserAddress").value);
- if(url)window.open(url,"_blank","noopener,noreferrer");
-}
-
-function closeBrowser(){
- document.getElementById("browserView").classList.remove("visible");
- document.getElementById("browserFrame").src="about:blank";
- showPage("home");
-}
-
-document.getElementById("searchForm").addEventListener("submit",function(e){
- e.preventDefault();
- const value=document.getElementById("searchInput").value;
- if(!value.trim())return;
- document.getElementById("browserAddress").value=value;
- navigateBrowser();
-});
-
-document.getElementById("browserAddress").addEventListener("keydown",function(e){
- if(e.key==="Enter")navigateBrowser();
-});
-
-const games=[
-{name:"Number Guess",icon:"🔢",cat:"Built-in",desc:"Guess a secret number.",type:"guess"},
-{name:"Click Challenge",icon:"⚡",cat:"Built-in",desc:"Test your clicking speed.",type:"click"},
-{name:"Quick Math",icon:"🧠",cat:"Built-in",desc:"Solve a math question.",type:"math"},
-{name:"Rock Paper Scissors",icon:"✊",cat:"Built-in",desc:"Play against the computer.",type:"rps"},
-{name:"Memory Match",icon:"🧩",cat:"Built-in",desc:"Match hidden pairs.",type:"memory"},
-{name:"Tic-Tac-Toe",icon:"❎",cat:"Built-in",desc:"Get three in a row.",type:"ttt"},
-{name:"2048",icon:"🔢",cat:"Puzzle",desc:"Combine number tiles.",url:"https://play2048.co/"},
-{name:"Snake",icon:"🐍",cat:"Arcade",desc:"Classic snake game.",url:"https://playsnake.org/"},
-{name:"Tetris",icon:"🟦",cat:"Puzzle",desc:"Fit falling blocks.",url:"https://tetris.com/play-tetris"},
-{name:"Chess",icon:"♟️",cat:"Strategy",desc:"Plan your next move.",url:"https://www.chess.com/"},
-{name:"Sudoku",icon:"🔢",cat:"Puzzle",desc:"Solve the number grid.",url:"https://sudoku.com/"},
-{name:"Minesweeper",icon:"💣",cat:"Puzzle",desc:"Find safe squares.",url:"https://minesweeper.online/"},
-{name:"Basketball",icon:"🏀",cat:"Sports",desc:"Try basketball games.",url:"https://www.crazygames.com/t/basketball"},
-{name:"Soccer",icon:"⚽",cat:"Sports",desc:"Try soccer games.",url:"https://www.crazygames.com/t/soccer"},
-{name:"Racing",icon:"🏎️",cat:"Sports",desc:"Explore racing games.",url:"https://www.crazygames.com/t/racing"},
-{name:"Arcade Games",icon:"👾",cat:"Arcade",desc:"Explore arcade games.",url:"https://poki.com/"},
-{name:"Roblox",icon:"🎮",cat:"Arcade",desc:"User-created games.",url:"https://www.roblox.com/"},
-{name:"Scratch Games",icon:"🐱",cat:"Arcade",desc:"Play and create games.",url:"https://scratch.mit.edu/explore/projects/games/"},
-{name:"Word Search",icon:"🔤",cat:"Puzzle",desc:"Find hidden words.",url:"https://thewordsearch.com/"},
-{name:"Cookie Clicker",icon:"🍪",cat:"Arcade",desc:"Grow your cookie total.",url:"https://orteil.dashnet.org/cookieclicker/"},
-{name:"CrazyGames",icon:"🎮",cat:"Arcade",desc:"Browse more games.",url:"https://www.crazygames.com/"},
-{name:"Poki",icon:"🕹️",cat:"Arcade",desc:"Browse more games.",url:"https://poki.com/"},
-{name:"Chess Puzzles",icon:"♟️",cat:"Strategy",desc:"Practice tactics.",url:"https://www.chess.com/puzzles/"},
-{name:"Typing Race",icon:"⌨️",cat:"Arcade",desc:"Practice typing speed.",url:"https://www.nitrotype.com/"}
-];
-
-let activeFilter="All";
-function renderGames(){
- const search=document.getElementById("gameSearch").value.trim().toLowerCase();
- const list=games.filter(g=>(activeFilter==="All"||g.cat===activeFilter)&&(g.name+" "+g.desc+" "+g.cat).toLowerCase().includes(search));
- const grid=document.getElementById("gameGrid");
- grid.innerHTML="";
- list.forEach(g=>{
-  const card=document.createElement("article");
-  card.className="game-card";
-  card.innerHTML='<span class="emoji">'+g.icon+'</span><h3>'+g.name+'</h3><p>'+g.desc+'</p>';
-  const b=document.createElement("button");
-  b.className="btn";
-  b.textContent=g.type?"Play here":"Open game";
-  b.onclick=()=>launchGame(g);
-  card.appendChild(b);
-  grid.appendChild(card);
- });
- if(!list.length)grid.innerHTML="<p>No games found.</p>";
-}
-document.getElementById("gameSearch").addEventListener("input",renderGames);
-document.querySelectorAll("#gameFilters button").forEach(b=>b.addEventListener("click",()=>{
- activeFilter=b.dataset.filter;
- document.querySelectorAll("#gameFilters button").forEach(x=>x.classList.toggle("active",x===b));
- renderGames();
-}));
-
-function launchGame(g){
- if(g.url){
-  document.getElementById("browserAddress").value=g.url;
-  navigateBrowser();
-  return;
- }
- playGame(g.type);
-}
-
-function playGame(type){
- const out=document.getElementById("gameResult");
- if(type==="guess"){
-  const answer=Math.floor(Math.random()*20)+1;
-  out.innerHTML='<h3>🔢 Number Guess</h3><p>Guess a number from 1 to 20.</p><input id="guessValue" type="number" min="1" max="20"><button class="btn" id="guessBtn">Guess</button><p id="guessFeedback"></p>';
-  document.getElementById("guessBtn").onclick=()=>{
-   const n=Number(document.getElementById("guessValue").value);
-   document.getElementById("guessFeedback").textContent=n===answer?"Correct! 🎉":n<answer?"Too low! Try again.":"Too high! Try again.";
-  };
- }
- if(type==="math"){
-  const a=1+Math.floor(Math.random()*20),b=1+Math.floor(Math.random()*20),ans=a+b;
-  out.innerHTML='<h3>🧠 Quick Math</h3><p>What is '+a+' + '+b+'?</p><input id="mathValue" type="number"><button class="btn" id="mathBtn">Check</button><p id="mathFeedback"></p>';
-  document.getElementById("mathBtn").onclick=()=>document.getElementById("mathFeedback").textContent=Number(document.getElementById("mathValue").value)===ans?"Correct! 🎉":"Answer: "+ans;
- }
- if(type==="rps"){
-  out.innerHTML='<h3>✊ Rock Paper Scissors</h3><button class="btn" onclick="rps(0)">Rock</button> <button class="btn" onclick="rps(1)">Paper</button> <button class="btn" onclick="rps(2)">Scissors</button><p id="rpsResult"></p>';
- }
- if(type==="click"){
-  out.innerHTML='<h3>⚡ Click Challenge</h3><p>Clicks: <b id="clickCount">0</b></p><button class="btn" id="tapBtn">Tap!</button><button class="btn" id="tapReset">Reset</button>';
-  let count=0;
-  document.getElementById("tapBtn").onclick=()=>document.getElementById("clickCount").textContent=++count;
-  document.getElementById("tapReset").onclick=()=>{count=0;document.getElementById("clickCount").textContent=0;};
- }
- if(type==="memory"){
-  const symbols=["🌙","⭐","🎮","🌸","🌙","⭐","🎮","🌸"].sort(()=>Math.random()-.5);
-  out.innerHTML='<h3>🧩 Memory Match</h3><p>Tap two cards to find matching pairs.</p><div id="memoryGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px"></div><p id="memoryStatus">Matches: 0</p>';
-  let first=null,lock=false,matches=0;
-  symbols.forEach(symbol=>{
-   const b=document.createElement("button");b.className="btn";b.textContent="❔";
-   b.onclick=()=>{
-    if(lock||b.dataset.done||b===first)return;
-    b.textContent=symbol;
-    if(!first){first=b;return;}
-    if(first.textContent===b.textContent){first.dataset.done="1";b.dataset.done="1";matches++;first=null;document.getElementById("memoryStatus").textContent="Matches: "+matches+"/4";return;}
-    lock=true;const old=first;first=null;
-    setTimeout(()=>{old.textContent="❔";b.textContent="❔";lock=false;},700);
-   };
-   document.getElementById("memoryGrid").appendChild(b);
-  });
- }
- if(type==="ttt"){
-  let board=Array(9).fill("");
-  out.innerHTML='<h3>❎ Tic-Tac-Toe</h3><div id="tttGrid" style="display:grid;grid-template-columns:repeat(3,65px);gap:5px"></div><p id="tttStatus">Your turn: X</p><button class="btn" id="tttReset">Restart</button>';
-  const wins=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-  function winner(){for(const [a,b,c] of wins)if(board[a]&&board[a]===board[b]&&board[b]===board[c])return board[a];return board.every(Boolean)?"Draw":"";}
-  function draw(){
-   const grid=document.getElementById("tttGrid");grid.innerHTML="";
-   board.forEach((v,i)=>{const b=document.createElement("button");b.className="btn";b.style.height="60px";b.textContent=v||"·";b.onclick=()=>move(i);grid.appendChild(b);});
-   document.getElementById("tttStatus").textContent=winner()?(winner()==="Draw"?"Draw!":winner()+" wins!"):"Your turn: X";
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(220,230,255,${s.alpha})`;
+    ctx.fill();
   }
-  function move(i){
-   if(board[i]||winner())return;
-   board[i]="X";
-   if(!winner()&&board.some(v=>!v)){
-    const empty=board.map((v,j)=>v?null:j).filter(v=>v!==null);
-    board[empty[Math.floor(Math.random()*empty.length)]]="O";
-   }
-   draw();
-  }
-  document.getElementById("tttReset").onclick=()=>{board=Array(9).fill("");draw();};
-  draw();
- }
-}
-function rps(choice){
- const computer=Math.floor(Math.random()*3);
- const names=["Rock","Paper","Scissors"];
- const result=choice===computer?"Tie!":(choice-computer+3)%3===1?"You win!":"Computer wins!";
- document.getElementById("rpsResult").textContent="You: "+names[choice]+" • Computer: "+names[computer]+" • "+result;
+
+  requestAnimationFrame(animateStars);
 }
 
-renderGames();
+window.addEventListener("resize", resizeStars);
+resizeStars();
+animateStars();
+
+/* Web search: opens results on the search provider.
+   External websites may block being displayed inside another site. */
+document.getElementById("searchForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const query = document.getElementById("searchInput").value.trim();
+  if (!query) return;
+
+  const results = document.getElementById("results");
+  const link = document.createElement("a");
+  link.href = "https://www.google.com/search?q=" + encodeURIComponent(query);
+  link.target = "_blank";
+  link.rel = "noopener";
+  link.textContent = "🌌 Open search results for: " + query;
+
+  results.replaceChildren(link);
+});
 </script>
 </body>
 </html>
