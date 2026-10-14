@@ -4,37 +4,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SATYA YUME 🌌</title>
+<title>SATYA YUME | 夢を追え</title>
 
 <style>
-* {
-  box-sizing: border-box;
+:root {
+  --blue: #36cfff;
+  --purple: #9b72ff;
+  --panel: rgba(10, 20, 45, .91);
+  --border: #285078;
 }
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: Arial, sans-serif;
-  color: white;
-  background: #050316;
-}
-
-.space {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background:
-    radial-gradient(ellipse at 20% 30%, #521c83 0%, transparent 40%),
-    radial-gradient(ellipse at 80% 70%, #073c70 0%, transparent 40%),
-    linear-gradient(135deg, #03020c, #100522, #020a1d);
-  background-size: 200% 200%;
-  animation: galaxy 18s ease-in-out infinite alternate;
-}
-
-@keyframes galaxy {
-  from { background-position: 0% 0%; }
-  to { background-position: 100% 100%; }
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #050817;
 }
 
 #stars {
@@ -42,347 +32,609 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -3;
   pointer-events: none;
+}
+
+.space-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 25%, #512d9855, transparent 45%),
+    radial-gradient(ellipse at 85% 65%, #086eb344, transparent 48%);
 }
 
 .planet {
   position: fixed;
+  z-index: -1;
   border-radius: 50%;
   pointer-events: none;
-  z-index: -1;
-  animation: float 8s ease-in-out infinite;
+  animation: float 8s ease-in-out infinite alternate;
 }
 
 .planet-one {
-  width: 90px;
-  height: 90px;
-  top: 18%;
-  right: 6%;
-  background: radial-gradient(circle at 30% 30%, #f0abfc, #7c3aed 60%, #24104a);
-  box-shadow: 0 0 45px #a855f766;
+  top: 27%;
+  left: 3%;
+  width: 85px;
+  height: 85px;
+  background: radial-gradient(circle at 30% 25%, #e4caff, #8650cc 45%, #21103c);
+  box-shadow: 0 0 35px #925bff66;
 }
 
 .planet-two {
-  width: 55px;
-  height: 55px;
+  right: 3%;
   bottom: 15%;
-  left: 5%;
-  background: radial-gradient(circle at 30% 30%, #a5f3fc, #0284c7 65%, #082f49);
-  box-shadow: 0 0 35px #38bdf855;
-  animation-delay: -3s;
+  width: 65px;
+  height: 65px;
+  background: radial-gradient(circle at 30% 25%, #a7f7ff, #2879b8 55%, #102044);
+  animation-delay: -4s;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  50% { transform: translateY(-24px) translateX(12px); }
+  from { transform: translate(0, 0) rotate(0deg); }
+  to { transform: translate(25px, -30px) rotate(15deg); }
 }
 
 header {
-  padding: 24px 16px;
-  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(5, 8, 23, .94);
+  border-bottom: 1px solid #25436a;
+  backdrop-filter: blur(12px);
+}
+
+.navbar {
+  max-width: 1450px;
+  margin: auto;
+  padding: 14px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
 .logo {
-  font-size: clamp(32px, 6vw, 54px);
+  font-size: 23px;
   font-weight: 900;
-  letter-spacing: 5px;
-  background: linear-gradient(90deg, #c4b5fd, #67e8f9, #f0abfc);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  text-shadow: 0 0 35px #8b5cf633;
+  white-space: nowrap;
 }
 
-.subtitle {
-  color: #c4b5fd;
-  letter-spacing: 3px;
-  font-size: 12px;
-}
+.logo span { color: var(--blue); }
 
 nav {
   display: flex;
+  gap: 8px;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px;
 }
 
-nav a, button {
+nav a {
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #101e3b;
   color: white;
   text-decoration: none;
-  background: #ffffff12;
-  border: 1px solid #a78bfa66;
-  border-radius: 12px;
-  padding: 11px 16px;
-  cursor: pointer;
-  transition: .25s ease;
+  transition: .25s;
 }
 
-nav a:hover, button:hover {
+nav a:hover {
+  background: #17395e;
+  border-color: var(--blue);
   transform: translateY(-3px);
-  background: #8b5cf644;
-  box-shadow: 0 0 20px #8b5cf655;
 }
 
 main {
-  width: min(1050px, 92%);
-  margin: 20px auto 70px;
+  max-width: 1250px;
+  margin: auto;
+  padding: 25px 20px 60px;
 }
 
-.panel {
-  padding: 24px;
-  margin: 22px 0;
-  border: 1px solid #a78bfa55;
-  border-radius: 22px;
-  background: #0c0925bb;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 40px #0005;
+section { scroll-margin-top: 100px; }
+
+.hero {
+  text-align: center;
+  padding: 55px 10px 38px;
 }
 
-h2 {
-  color: #c4b5fd;
+.eyebrow {
+  color: var(--blue);
+  font-size: 12px;
+  letter-spacing: 5px;
 }
 
-.search {
+h1 {
+  margin: 18px 0;
+  font-size: clamp(40px, 7vw, 78px);
+  letter-spacing: 2px;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+h1 span { color: var(--blue); }
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #36cfff44; }
+  to { text-shadow: 0 0 30px #9b72ffcc, 0 0 50px #36cfff55; }
+}
+
+.hero p {
+  color: #bdc9e5;
+  line-height: 1.7;
+}
+
+.search-box {
+  max-width: 800px;
+  margin: 28px auto 12px;
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 9px;
+  padding: 10px;
+  border: 1px solid var(--blue);
+  border-radius: 15px;
+  background: var(--panel);
+  box-shadow: 0 0 28px #1678b522;
 }
 
-.search input {
+.search-box input {
   flex: 1;
-  min-width: 180px;
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid #8b5cf6;
-  background: #050316;
+  min-width: 0;
+  padding: 14px;
+  background: #050b1b;
   color: white;
+  border: 1px solid #294667;
+  border-radius: 9px;
   font-size: 16px;
+  outline: none;
 }
 
-.search input:focus {
-  outline: 2px solid #38bdf8;
-  box-shadow: 0 0 20px #38bdf855;
+.search-box input:focus { border-color: var(--blue); }
+
+.primary {
+  padding: 13px 20px;
+  color: white;
+  font-size: 15px;
+  border: 1px solid #69dfff;
+  border-radius: 9px;
+  background: linear-gradient(120deg, #176ba8, #6944b8);
+  cursor: pointer;
 }
+
+.primary:hover { filter: brightness(1.2); }
+
+.note {
+  color: #91a7c9;
+  font-size: 12px;
+}
+
+.section-title {
+  margin: 42px 0 18px;
+  font-size: 28px;
+}
+
+.section-title span { color: var(--blue); }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
   gap: 16px;
 }
 
 .card {
-  min-height: 115px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding: 18px;
-  text-align: center;
-  color: white;
-  text-decoration: none;
-  border-radius: 18px;
-  border: 1px solid #8b5cf666;
-  background: linear-gradient(135deg, #25114aee, #091c3bee);
-  animation: cardFloat 5s ease-in-out infinite;
-  transition: box-shadow .3s, border-color .3s;
+  min-width: 0;
+  padding: 21px;
+  border: 1px solid #263f69;
+  border-radius: 17px;
+  background: linear-gradient(145deg, #142448ee, #0a1127f2);
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+  animation: cardFloat 5s ease-in-out infinite alternate;
 }
 
-.card:nth-child(3n) { animation-delay: -2s; }
-.card:nth-child(2n) { animation-delay: -1s; }
+.card:nth-child(2n) { animation-delay: -2s; }
+.card:nth-child(3n) { animation-delay: -3s; }
 
 @keyframes cardFloat {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -7px; }
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
 }
 
 .card:hover {
-  translate: 0 -8px;
-  border-color: #67e8f9;
-  box-shadow: 0 0 28px #8b5cf655;
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--blue);
+  box-shadow: 0 0 25px #36cfff25;
 }
 
-.emoji {
-  font-size: 30px;
+.emoji { font-size: 31px; }
+
+.card h3 { margin: 12px 0 8px; }
+
+.card p {
+  color: #aebedb;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
-#results a {
-  color: #67e8f9;
-  display: block;
-  margin: 12px 0;
-  overflow-wrap: anywhere;
+.card a {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.card a:hover { text-decoration: underline; }
+
+.search-panel {
+  margin-top: 40px;
+  overflow: hidden;
+  border: 1px solid var(--blue);
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: 0 0 25px #1678b51c;
+}
+
+.search-panel-head {
+  padding: 20px;
+  border-bottom: 1px solid #294a70;
+}
+
+.search-panel-head h2 { margin: 0 0 8px; }
+
+.search-panel-head p {
+  margin: 0;
+  color: #aebedb;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.gcse-search {
+  padding: 18px;
+  min-height: 100px;
+  color: #fff;
+}
+
+/* Make the Google search box fit the galaxy design */
+.gsc-control-cse {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+.gsc-control-cse * { box-sizing: border-box; }
+
+.gsc-search-button-v2 {
+  background: #176ba8 !important;
+  border-color: #36cfff !important;
+  border-radius: 8px !important;
+}
+
+.gsc-input-box {
+  border-radius: 8px !important;
+}
+
+.gsc-webResult.gsc-result,
+.gsc-results .gsc-imageResult {
+  background: #101e3b !important;
+  border-color: #294667 !important;
+  border-radius: 8px !important;
+}
+
+.gsc-webResult.gsc-result:hover {
+  border-color: #36cfff !important;
+}
+
+.gsc-webResult div,
+.gsc-webResult a,
+.gsc-webResult .gs-snippet {
+  color: #dce8ff !important;
+}
+
+.about {
+  margin-top: 40px;
+  padding: 25px;
+  border: 1px solid #263f69;
+  border-radius: 16px;
+  background: #0d1831dd;
+  color: #c0cce3;
+  line-height: 1.8;
 }
 
 footer {
+  padding: 25px 15px;
   text-align: center;
-  color: #a5b4fc;
-  padding: 25px;
+  border-top: 1px solid #233957;
+  color: #8498ba;
+  font-size: 13px;
+}
+
+@media (max-width: 650px) {
+  .navbar { justify-content: center; }
+  nav { justify-content: center; }
+  nav a { padding: 9px; font-size: 12px; }
+  .hero { padding-top: 35px; }
+  .search-box { flex-wrap: wrap; }
+  .search-box input { flex-basis: 100%; }
+  .planet-one { width: 48px; height: 48px; }
+  .planet-two { width: 38px; height: 38px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation: none !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
   }
 }
 </style>
+
+<!-- Google Programmable Search Engine -->
+<script async src="https://cse.google.com/cse.js?cx=715f4c4df6f294b78"></script>
 </head>
 
 <body>
-<div class="space"></div>
 <canvas id="stars"></canvas>
+<div class="space-glow"></div>
 <div class="planet planet-one"></div>
 <div class="planet planet-two"></div>
 
 <header>
-  <div class="logo">SATYA YUME</div>
-  <p class="subtitle">✦ YOUR UNIVERSE OF DISCOVERY ✦</p>
+  <div class="navbar">
+    <div class="logo">☯ SATYA <span>YUME</span></div>
+    <nav>
+      <a href="#home">⌂ ホーム</a>
+      <a href="#games">🎮 ゲーム</a>
+      <a href="#search">🔎 Search</a>
+      <a href="#chat">💬 チャット</a>
+      <a href="#videos">▶ ビデオ</a>
+      <a href="#ai">✧ AI</a>
+      <a href="#apps">▦ アプリ</a>
+    </nav>
+  </div>
 </header>
 
-<nav>
-  <a href="#home">🏠 Home</a>
-  <a href="#web">🌐 Web Search</a>
-  <a href="#games">🎮 Games</a>
-  <a href="#about">✨ About</a>
-</nav>
-
 <main>
-  <section class="panel" id="home">
-    <h2>🚀 Explore the Universe</h2>
-    <p>Search the web, discover websites, and launch your favorite games.</p>
+  <section id="home" class="hero">
+    <div class="eyebrow">WELCOME TO YOUR UNIVERSE</div>
+    <h1>SATYA <span>YUME</span></h1>
+    <p>夢を追え — Chase your dreams among the stars.</p>
 
-    <form class="search" id="searchForm">
-      <input id="searchInput" type="search"
-        placeholder="Search the galaxy..."
-        aria-label="Search the web" required>
-      <button type="submit">🔍 Search</button>
+    <form class="search-box" id="topSearch">
+      <input id="topQuery" type="search"
+        placeholder="Search the web..." aria-label="Search the web" required>
+      <button class="primary" type="submit">Search ↓</button>
     </form>
-
-    <div id="results"></div>
+    <div class="note">Search results appear below, inside SATYA YUME.</div>
   </section>
 
-  <section class="panel" id="web">
-    <h2>🌐 Spaceport — Websites</h2>
+  <section id="search" class="search-panel">
+    <div class="search-panel-head">
+      <h2>🔎 SATYA YUME Search</h2>
+      <p>Search the web without leaving this page. Results are provided by Google Programmable Search Engine.</p>
+    </div>
+    <div class="gcse-search"></div>
+  </section>
+
+  <section id="games">
+    <h2 class="section-title"><span>🎮</span> Game Universe</h2>
     <div class="grid">
-      <a class="card" href="https://www.wikipedia.org/" target="_blank" rel="noopener">
-        <span class="emoji">📚</span>Wikipedia
-      </a>
-      <a class="card" href="https://www.youtube.com/" target="_blank" rel="noopener">
-        <span class="emoji">▶️</span>YouTube
-      </a>
-      <a class="card" href="https://www.nasa.gov/" target="_blank" rel="noopener">
-        <span class="emoji">🪐</span>NASA
-      </a>
-      <a class="card" href="https://scratch.mit.edu/" target="_blank" rel="noopener">
-        <span class="emoji">🧩</span>Scratch
-      </a>
-      <a class="card" href="https://www.coolmathgames.com/" target="_blank" rel="noopener">
-        <span class="emoji">🧠</span>Coolmath Games
-      </a>
-      <a class="card" href="https://www.khanacademy.org/" target="_blank" rel="noopener">
-        <span class="emoji">🎓</span>Khan Academy
-      </a>
+      <article class="card">
+        <div class="emoji">🕹️</div><h3>Poki</h3>
+        <p>Explore a collection of online games.</p>
+        <a href="https://poki.com/" target="_blank" rel="noopener">Play ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">🎯</div><h3>CrazyGames</h3>
+        <p>Discover action, racing, and puzzle games.</p>
+        <a href="https://www.crazygames.com/" target="_blank" rel="noopener">Play ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">♟️</div><h3>Lichess</h3>
+        <p>Play chess and practice your strategy.</p>
+        <a href="https://lichess.org/" target="_blank" rel="noopener">Play ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">🧩</div><h3>Math Playground</h3>
+        <p>Try math games and brain challenges.</p>
+        <a href="https://www.mathplayground.com/" target="_blank" rel="noopener">Explore ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">🎨</div><h3>Scratch</h3>
+        <p>Create stories, animations, and games.</p>
+        <a href="https://scratch.mit.edu/" target="_blank" rel="noopener">Create ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">🧱</div><h3>Roblox</h3>
+        <p>Explore user-created experiences.</p>
+        <a href="https://www.roblox.com/" target="_blank" rel="noopener">Explore ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">🧠</div><h3>ChessKid</h3>
+        <p>Learn chess skills and tactics.</p>
+        <a href="https://www.chesskid.com/" target="_blank" rel="noopener">Learn ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">🎮</div><h3>Coolmath Games</h3>
+        <p>Play puzzles and logic games.</p>
+        <a href="https://www.coolmathgames.com/" target="_blank" rel="noopener">Play ↗</a>
+      </article>
     </div>
   </section>
 
-  <section class="panel" id="games">
-    <h2>🎮 Galactic Game Zone</h2>
+  <section id="apps">
+    <h2 class="section-title"><span>▦</span> App Galaxy</h2>
     <div class="grid">
-      <a class="card" href="https://poki.com/" target="_blank" rel="noopener">
-        <span class="emoji">🕹️</span>Poki Games
-      </a>
-      <a class="card" href="https://www.crazygames.com/" target="_blank" rel="noopener">
-        <span class="emoji">🎯</span>CrazyGames
-      </a>
-      <a class="card" href="https://lichess.org/" target="_blank" rel="noopener">
-        <span class="emoji">♟️</span>Chess
-      </a>
-      <a class="card" href="https://www.chesskid.com/" target="_blank" rel="noopener">
-        <span class="emoji">👑</span>ChessKid
-      </a>
-      <a class="card" href="https://www.mathplayground.com/" target="_blank" rel="noopener">
-        <span class="emoji">🧮</span>Math Playground
-      </a>
-      <a class="card" href="https://www.roblox.com/" target="_blank" rel="noopener">
-        <span class="emoji">🌟</span>Roblox
-      </a>
+      <article class="card">
+        <div class="emoji">📚</div><h3>Wikipedia</h3>
+        <p>Look up information and learn something new.</p>
+        <a href="https://www.wikipedia.org/" target="_blank" rel="noopener">Open ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">🎓</div><h3>Khan Academy</h3>
+        <p>Practice math and other school subjects.</p>
+        <a href="https://www.khanacademy.org/" target="_blank" rel="noopener">Learn ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">🚀</div><h3>NASA</h3>
+        <p>Explore planets, space, and missions.</p>
+        <a href="https://www.nasa.gov/" target="_blank" rel="noopener">Explore ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">🌍</div><h3>Google Earth</h3>
+        <p>Explore places around the world.</p>
+        <a href="https://earth.google.com/" target="_blank" rel="noopener">Explore ↗</a>
+      </article>
     </div>
-    <p>Some games may open in a new tab or require an account.</p>
   </section>
 
-  <section class="panel" id="about">
-    <h2>✨ About SATYA YUME</h2>
-    <p>A galaxy-inspired space for searching, learning, and gaming.</p>
-    <p>Explore. Discover. Launch into something new. 🌌</p>
+  <section id="chat">
+    <h2 class="section-title"><span>💬</span> Chat Zone</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="emoji">💌</div><h3>Google Messages</h3>
+        <p>Open Google Messages for the web.</p>
+        <a href="https://messages.google.com/web/" target="_blank" rel="noopener">Open ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">🌐</div><h3>Google Translate</h3>
+        <p>Translate words and sentences.</p>
+        <a href="https://translate.google.com/" target="_blank" rel="noopener">Translate ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="videos">
+    <h2 class="section-title"><span>▶</span> Video Galaxy</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="emoji">📺</div><h3>YouTube</h3>
+        <p>Watch videos and tutorials.</p>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener">Watch ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">🎞️</div><h3>YouTube Learning</h3>
+        <p>Find educational videos and lessons.</p>
+        <a href="https://www.youtube.com/results?search_query=educational+videos" target="_blank" rel="noopener">Explore ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="ai">
+    <h2 class="section-title"><span>✧</span> AI Galaxy</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="emoji">🤖</div><h3>ChatGPT</h3>
+        <p>Ask questions, brainstorm, and learn.</p>
+        <a href="https://chatgpt.com/" target="_blank" rel="noopener">Open ↗</a>
+      </article>
+      <article class="card">
+        <div class="emoji">✨</div><h3>Google Gemini</h3>
+        <p>Explore Google's AI assistant.</p>
+        <a href="https://gemini.google.com/" target="_blank" rel="noopener">Open ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>🌠 About SATYA YUME</h2>
+    <p>
+      Welcome to SATYA YUME, your galaxy-themed launchpad.
+      Explore games, learning tools, videos, and helpful websites
+      surrounded by moving stars, glowing planets, and floating cards.
+    </p>
+    <p>Keep exploring. Keep learning. Chase your dreams. ✨</p>
   </section>
 </main>
 
-<footer>✦ SATYA YUME · LOST IN SPACE, FOUND IN DISCOVERY ✦</footer>
+<footer>
+  SATYA YUME • 夢を追え • Explore Your Universe 🌌
+</footer>
 
 <script>
-/* Animated stars */
+/* Connect the top search box to the embedded Google search box */
+document.getElementById("topSearch").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const query = document.getElementById("topQuery").value.trim();
+  if (!query) return;
+
+  const searchInput = document.querySelector("#search .gsc-input input");
+  const searchButton = document.querySelector("#search .gsc-search-button");
+
+  document.getElementById("search").scrollIntoView({behavior: "smooth"});
+
+  // Google loads its search controls asynchronously.
+  let attempts = 0;
+  const timer = setInterval(function() {
+    attempts++;
+
+    const input = document.querySelector("#search .gsc-input input");
+    const button = document.querySelector("#search .gsc-search-button");
+
+    if (input && button) {
+      input.value = query;
+      input.dispatchEvent(new Event("input", {bubbles: true}));
+      input.dispatchEvent(new Event("change", {bubbles: true}));
+      button.click();
+      clearInterval(timer);
+    }
+
+    if (attempts >= 20) {
+      clearInterval(timer);
+      // If Google's search box has not loaded, fill the visible search box
+      // when it becomes available instead of opening a new tab.
+    }
+  }, 300);
+});
+
+/* Animated moving stars */
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 let stars = [];
 
-function resizeStars() {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  canvas.width = innerWidth * dpr;
-  canvas.height = innerHeight * dpr;
-  canvas.style.width = innerWidth + "px";
-  canvas.style.height = innerHeight + "px";
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+function resizeCanvas() {
+  const ratio = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = window.innerWidth * ratio;
+  canvas.height = window.innerHeight * ratio;
+  canvas.style.width = window.innerWidth + "px";
+  canvas.style.height = window.innerHeight + "px";
+  ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
 
-  stars = Array.from({ length: 130 }, () => ({
-    x: Math.random() * innerWidth,
-    y: Math.random() * innerHeight,
-    r: Math.random() * 1.7 + 0.3,
-    speed: Math.random() * 0.35 + 0.08,
-    alpha: Math.random() * 0.8 + 0.2
+  stars = Array.from({length: 150}, () => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    size: Math.random() * 1.8 + .3,
+    speed: Math.random() * .45 + .08,
+    phase: Math.random() * Math.PI * 2
   }));
 }
 
 function animateStars() {
-  ctx.clearRect(0, 0, innerWidth, innerHeight);
+  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-  for (const s of stars) {
-    s.y -= s.speed;
-    if (s.y < 0) {
-      s.y = innerHeight;
-      s.x = Math.random() * innerWidth;
+  for (const star of stars) {
+    star.y -= star.speed;
+    star.x += Math.sin(star.phase) * .12;
+    star.phase += .012;
+
+    if (star.y < 0) {
+      star.y = window.innerHeight;
+      star.x = Math.random() * window.innerWidth;
     }
 
+    const opacity = .4 + (Math.sin(star.phase) + 1) * .3;
+    ctx.fillStyle = `rgba(190,220,255,${opacity})`;
     ctx.beginPath();
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(220,230,255,${s.alpha})`;
+    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
     ctx.fill();
   }
 
   requestAnimationFrame(animateStars);
 }
 
-window.addEventListener("resize", resizeStars);
-resizeStars();
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
 animateStars();
-
-/* Web search: opens results on the search provider.
-   External websites may block being displayed inside another site. */
-document.getElementById("searchForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const query = document.getElementById("searchInput").value.trim();
-  if (!query) return;
-
-  const results = document.getElementById("results");
-  const link = document.createElement("a");
-  link.href = "https://www.google.com/search?q=" + encodeURIComponent(query);
-  link.target = "_blank";
-  link.rel = "noopener";
-  link.textContent = "🌌 Open search results for: " + query;
-
-  results.replaceChildren(link);
-});
 </script>
 </body>
 </html>
