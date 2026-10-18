@@ -3,404 +3,130 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SATYA YUME 🌌</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;overflow-x:hidden;
+  font-family:Arial,sans-serif;color:white;background:#050817;
 }
-
-html {
-  scroll-behavior: smooth;
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-3;pointer-events:none}
+.space-glow{
+  position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:radial-gradient(ellipse at 15% 20%,#512d9844,transparent 45%),
+             radial-gradient(ellipse at 85% 75%,#086eb344,transparent 45%);
 }
+.planet{position:fixed;border-radius:50%;z-index:-1;pointer-events:none;animation:float 7s ease-in-out infinite alternate}
+.planet-one{width:75px;height:75px;top:33%;left:4%;background:radial-gradient(circle at 30% 25%,#e4caff,#8650cc 50%,#21103c);box-shadow:0 0 35px #925bff66}
+.planet-two{width:55px;height:55px;right:4%;bottom:18%;background:radial-gradient(circle at 30% 25%,#a7f7ff,#2879b8 55%,#102044);animation-delay:-3s}
+@keyframes float{to{transform:translate(20px,-25px)}}
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-  color: white;
-  font-family: Arial, sans-serif;
-  background: #050817;
+header{
+  position:sticky;top:0;z-index:20;
+  background:#050817ed;border-bottom:1px solid #294667;
+  backdrop-filter:blur(12px);
 }
-
-#stars {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  pointer-events: none;
+.navbar{
+  max-width:1250px;margin:auto;padding:15px 20px;
+  display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;
 }
-
-.space-glow {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at 15% 20%, #512d9844, transparent 45%),
-    radial-gradient(ellipse at 85% 75%, #086eb344, transparent 45%);
+.logo{font-size:23px;font-weight:900}
+.logo span,.accent{color:#36cfff}
+nav{display:flex;flex-wrap:wrap;gap:8px}
+nav a{
+  padding:10px 12px;color:white;text-decoration:none;
+  background:#101e3b;border:1px solid #294667;border-radius:9px;
 }
+nav a:hover{border-color:#36cfff;transform:translateY(-2px)}
+main{width:100%;max-width:1250px;margin:auto;padding:25px 20px 60px}
+section{scroll-margin-top:100px;min-width:0}
+.hero{text-align:center;padding:45px 10px 30px}
+.eyebrow{color:#36cfff;font-size:12px;letter-spacing:5px}
+h1{margin:18px 0;font-size:clamp(42px,7vw,76px);text-shadow:0 0 25px #36cfff66}
+h1 span{color:#36cfff}
+.hero p{color:#bdc9e5;line-height:1.7}
 
-.planet {
-  position: fixed;
-  z-index: -1;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: float 7s ease-in-out infinite alternate;
+.search-form{
+  display:flex;gap:8px;width:100%;max-width:780px;margin:25px auto 12px;
+  padding:8px;background:#080f25;border:1px solid #36cfff;border-radius:13px;
 }
-
-.planet-one {
-  width: 75px;
-  height: 75px;
-  top: 30%;
-  left: 3%;
-  background: radial-gradient(circle at 30% 25%, #e4caff, #8650cc 50%, #21103c);
-  box-shadow: 0 0 35px #925bff66;
+.search-form input{
+  flex:1;width:0;min-width:0;padding:14px;color:white;
+  background:#050b1b;border:1px solid #294667;border-radius:8px;
+  font-size:16px;outline:none;
 }
-
-.planet-two {
-  width: 55px;
-  height: 55px;
-  right: 4%;
-  bottom: 18%;
-  background: radial-gradient(circle at 30% 25%, #a7f7ff, #2879b8 55%, #102044);
-  animation-delay: -3s;
+.search-form input:focus{border-color:#36cfff;box-shadow:0 0 12px #36cfff33}
+.search-form input::placeholder{color:#91a7c9}
+button{font-family:inherit;cursor:pointer}
+.primary{
+  padding:12px 18px;color:white;background:linear-gradient(120deg,#176ba8,#6944b8);
+  border:1px solid #36cfff;border-radius:8px;
 }
+.note{color:#91a7c9;font-size:12px}
 
-@keyframes float {
-  from { transform: translate(0, 0); }
-  to { transform: translate(20px, -25px); }
+.panel{
+  margin:25px 0;padding:22px;min-width:0;overflow:hidden;
+  background:#0b1430ee;border:1px solid #294667;border-radius:17px;
 }
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #050817ed;
-  border-bottom: 1px solid #294667;
-  backdrop-filter: blur(12px);
+.panel h2{margin-top:0;color:#c6b4ff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,155px),1fr));gap:14px}
+.card{
+  min-width:0;padding:18px 12px;text-align:center;
+  background:linear-gradient(145deg,#201442,#101d3a);
+  border:1px solid #493580;border-radius:15px;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+  animation:cardFloat 5s ease-in-out infinite alternate;
 }
-
-.navbar {
-  max-width: 1250px;
-  margin: auto;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
+.card:nth-child(2n){animation-delay:-2s}
+@keyframes cardFloat{to{transform:translateY(-4px)}}
+.card:hover{transform:translateY(-6px);border-color:#36cfff;box-shadow:0 0 20px #36cfff22}
+.emoji{font-size:32px}
+.card h3{font-size:16px;margin:12px 0}
+.card button{
+  width:100%;padding:10px 8px;color:white;background:#14294c;
+  border:1px solid #36cfff88;border-radius:8px;
 }
+.card button:hover{background:#214577}
 
-.logo {
-  font-size: 23px;
-  font-weight: 900;
+/* In-page browser window */
+#browserPanel{padding:0;background:#080f25;border-color:#36cfff}
+#browserPanel[hidden]{display:none}
+.browser-toolbar{
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px;
+  padding:13px;background:#101e3b;border-bottom:1px solid #294667;
 }
-
-.logo span,
-.accent {
-  color: #36cfff;
+#browserTitle{flex:1;min-width:140px;color:#36cfff;overflow-wrap:anywhere}
+.browser-toolbar button{
+  padding:9px 11px;color:white;background:#18294b;
+  border:1px solid #36cfff88;border-radius:8px;
 }
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+#addressBar{
+  flex:1;min-width:180px;width:100%;padding:10px;color:white;
+  background:#050b1b;border:1px solid #294667;border-radius:8px;
 }
-
-nav a {
-  padding: 10px 12px;
-  color: white;
-  text-decoration: none;
-  background: #101e3b;
-  border: 1px solid #294667;
-  border-radius: 9px;
-  transition: .25s;
+#browserFrame{
+  display:block;width:100%;height:65vh;min-height:350px;
+  border:0;background:#fff;
 }
+.browser-note{margin:0;padding:12px;color:#aebedb;font-size:12px;line-height:1.6}
+.about{color:#c0cce3;line-height:1.8}
+footer{padding:25px 15px;text-align:center;border-top:1px solid #233957;color:#8498ba;font-size:13px}
 
-nav a:hover {
-  border-color: #36cfff;
-  transform: translateY(-2px);
+@media(max-width:650px){
+  .navbar{justify-content:center}
+  nav{justify-content:center}
+  nav a{padding:9px;font-size:12px}
+  .search-form{flex-wrap:wrap}
+  .search-form input{flex-basis:100%;width:100%}
+  .planet-one{width:45px;height:45px}
+  .planet-two{width:35px;height:35px}
+  #browserFrame{height:60vh;min-height:300px}
 }
-
-main {
-  width: 100%;
-  max-width: 1250px;
-  margin: auto;
-  padding: 25px 20px 60px;
-}
-
-section {
-  scroll-margin-top: 100px;
-}
-
-.hero {
-  text-align: center;
-  padding: 45px 10px 30px;
-}
-
-.eyebrow {
-  color: #36cfff;
-  font-size: 12px;
-  letter-spacing: 5px;
-}
-
-h1 {
-  margin: 18px 0;
-  font-size: clamp(42px, 7vw, 76px);
-  animation: glow 3s ease-in-out infinite alternate;
-}
-
-h1 span {
-  color: #36cfff;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 10px #36cfff44; }
-  to { text-shadow: 0 0 28px #9b72ffbb; }
-}
-
-.hero p {
-  color: #bdc9e5;
-  line-height: 1.7;
-}
-
-.search-form {
-  display: flex;
-  gap: 8px;
-  width: 100%;
-  max-width: 780px;
-  margin: 25px auto 12px;
-  padding: 8px;
-  background: #080f25;
-  border: 1px solid #36cfff;
-  border-radius: 13px;
-}
-
-.search-form input {
-  flex: 1;
-  width: 0;
-  min-width: 0;
-  padding: 14px;
-  color: white;
-  background: #050b1b;
-  border: 1px solid #294667;
-  border-radius: 8px;
-  font-size: 16px;
-  outline: none;
-}
-
-.search-form input:focus {
-  border-color: #36cfff;
-  box-shadow: 0 0 12px #36cfff33;
-}
-
-button {
-  font-family: inherit;
-}
-
-.primary {
-  padding: 12px 18px;
-  color: white;
-  background: linear-gradient(120deg, #176ba8, #6944b8);
-  border: 1px solid #36cfff;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.primary:hover {
-  filter: brightness(1.2);
-}
-
-.note {
-  color: #91a7c9;
-  font-size: 12px;
-}
-
-.panel {
-  margin: 25px 0;
-  padding: 22px;
-  min-width: 0;
-  overflow: hidden;
-  background: #0b1430ee;
-  border: 1px solid #294667;
-  border-radius: 17px;
-}
-
-.panel h2 {
-  margin-top: 0;
-  color: #c6b4ff;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 155px), 1fr));
-  gap: 14px;
-}
-
-.card {
-  min-width: 0;
-  padding: 18px 12px;
-  text-align: center;
-  background: linear-gradient(145deg, #201442, #101d3a);
-  border: 1px solid #493580;
-  border-radius: 15px;
-  transition: transform .25s, border-color .25s, box-shadow .25s;
-  animation: cardFloat 5s ease-in-out infinite alternate;
-}
-
-.card:nth-child(2n) {
-  animation-delay: -2s;
-}
-
-@keyframes cardFloat {
-  from { transform: translateY(0); }
-  to { transform: translateY(-4px); }
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: #36cfff;
-  box-shadow: 0 0 20px #36cfff22;
-}
-
-.card .emoji {
-  font-size: 32px;
-}
-
-.card h3 {
-  font-size: 16px;
-  margin: 12px 0;
-}
-
-.card button {
-  width: 100%;
-  padding: 10px 8px;
-  color: white;
-  background: #14294c;
-  border: 1px solid #36cfff88;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.card button:hover {
-  background: #214577;
-}
-
-/* In-page website viewer */
-#browserPanel {
-  padding: 0;
-  background: #080f25;
-  border-color: #36cfff;
-}
-
-#browserPanel[hidden] {
-  display: none;
-}
-
-.browser-toolbar {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 13px;
-  background: #101e3b;
-  border-bottom: 1px solid #294667;
-}
-
-#browserTitle {
-  flex: 1;
-  min-width: 140px;
-  color: #36cfff;
-  overflow-wrap: anywhere;
-}
-
-.browser-toolbar button {
-  padding: 9px 11px;
-  color: white;
-  background: #18294b;
-  border: 1px solid #36cfff88;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-#browserFrame {
-  display: block;
-  width: 100%;
-  height: 65vh;
-  min-height: 350px;
-  border: 0;
-  background: #fff;
-}
-
-.browser-note {
-  margin: 0;
-  padding: 12px;
-  color: #aebedb;
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-.about {
-  color: #c0cce3;
-  line-height: 1.8;
-}
-
-footer {
-  padding: 25px 15px;
-  text-align: center;
-  border-top: 1px solid #233957;
-  color: #8498ba;
-  font-size: 13px;
-}
-
-@media (max-width: 650px) {
-  .navbar {
-    justify-content: center;
-  }
-
-  nav {
-    justify-content: center;
-  }
-
-  nav a {
-    padding: 9px;
-    font-size: 12px;
-  }
-
-  .search-form {
-    flex-wrap: wrap;
-  }
-
-  .search-form input {
-    flex-basis: 100%;
-    width: 100%;
-  }
-
-  .planet-one {
-    width: 45px;
-    height: 45px;
-  }
-
-  .planet-two {
-    width: 35px;
-    height: 35px;
-  }
-
-  #browserFrame {
-    height: 60vh;
-    min-height: 300px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-  }
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
@@ -431,14 +157,10 @@ footer {
     <p>夢を追え — Chase your dreams among the stars.</p>
 
     <form class="search-form" id="searchForm">
-      <input id="searchInput" type="search"
-        placeholder="Search the web or enter a website..."
-        aria-label="Search the web or enter a website" required>
+      <input id="searchInput" type="search" placeholder="Search the web or enter a website..." required>
       <button class="primary" type="submit">🔎 Search</button>
     </form>
-    <div class="note">
-      Try searching for a website or entering its address.
-    </div>
+    <div class="note">Search or enter a website address to try opening it below.</div>
   </section>
 
   <section id="browserPanel" class="panel" hidden>
@@ -447,139 +169,53 @@ footer {
       <button type="button" onclick="closeBrowser()">✕ Close</button>
       <button type="button" onclick="openSeparately()">↗ Open separately</button>
     </div>
-
-    <iframe id="browserFrame"
-      title="SATYA YUME website viewer"
-      src="about:blank"
-      loading="lazy"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen>
-    </iframe>
-
+    <div class="browser-toolbar">
+      <input id="addressBar" aria-label="Website address" placeholder="Website address">
+      <button type="button" onclick="goToAddress()">Go</button>
+    </div>
+    <iframe id="browserFrame" title="SATYA YUME website viewer" src="about:blank" loading="lazy" allowfullscreen></iframe>
     <p class="browser-note">
-      If a website refuses to load, it may block embedded viewing.
-      Use “Open separately” if you want to visit it in another tab.
+      If a website refuses to connect, it blocks embedded viewing. This browser window cannot override that restriction. Use “Open separately” to visit the website in a new tab.
     </p>
   </section>
 
   <section id="search" class="panel">
     <h2>🌐 Spaceport — Websites</h2>
     <div class="grid">
-      <article class="card">
-        <div class="emoji">📚</div>
-        <h3>Wikipedia</h3>
-        <button onclick="showSite('https://www.wikipedia.org/', 'Wikipedia')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">▶️</div>
-        <h3>YouTube</h3>
-        <button onclick="showSite('https://www.youtube.com/', 'YouTube')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">🪐</div>
-        <h3>NASA</h3>
-        <button onclick="showSite('https://www.nasa.gov/', 'NASA')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">🧩</div>
-        <h3>Scratch</h3>
-        <button onclick="showSite('https://scratch.mit.edu/', 'Scratch')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">🧠</div>
-        <h3>Coolmath Games</h3>
-        <button onclick="showSite('https://www.coolmathgames.com/', 'Coolmath Games')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">🎓</div>
-        <h3>Khan Academy</h3>
-        <button onclick="showSite('https://www.khanacademy.org/', 'Khan Academy')">Open here</button>
-      </article>
+      <article class="card"><div class="emoji">📚</div><h3>Wikipedia</h3><button onclick="showSite('https://www.wikipedia.org/','Wikipedia')">Open here</button></article>
+      <article class="card"><div class="emoji">▶️</div><h3>YouTube</h3><button onclick="showSite('https://www.youtube.com/','YouTube')">Open here</button></article>
+      <article class="card"><div class="emoji">🪐</div><h3>NASA</h3><button onclick="showSite('https://www.nasa.gov/','NASA')">Open here</button></article>
+      <article class="card"><div class="emoji">🧩</div><h3>Scratch</h3><button onclick="showSite('https://scratch.mit.edu/','Scratch')">Open here</button></article>
+      <article class="card"><div class="emoji">🧠</div><h3>Coolmath Games</h3><button onclick="showSite('https://www.coolmathgames.com/','Coolmath Games')">Open here</button></article>
+      <article class="card"><div class="emoji">🎓</div><h3>Khan Academy</h3><button onclick="showSite('https://www.khanacademy.org/','Khan Academy')">Open here</button></article>
     </div>
   </section>
 
   <section id="games" class="panel">
     <h2>🎮 Game Universe</h2>
     <div class="grid">
-      <article class="card">
-        <div class="emoji">🕹️</div>
-        <h3>Poki</h3>
-        <button onclick="showSite('https://poki.com/', 'Poki')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">🎯</div>
-        <h3>CrazyGames</h3>
-        <button onclick="showSite('https://www.crazygames.com/', 'CrazyGames')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">♟️</div>
-        <h3>Lichess</h3>
-        <button onclick="showSite('https://lichess.org/', 'Lichess')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">🧱</div>
-        <h3>Roblox</h3>
-        <button onclick="showSite('https://www.roblox.com/', 'Roblox')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">♟️</div>
-        <h3>ChessKid</h3>
-        <button onclick="showSite('https://www.chesskid.com/', 'ChessKid')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">🧮</div>
-        <h3>Math Playground</h3>
-        <button onclick="showSite('https://www.mathplayground.com/', 'Math Playground')">Open here</button>
-      </article>
+      <article class="card"><div class="emoji">🕹️</div><h3>Poki</h3><button onclick="showSite('https://poki.com/','Poki')">Open here</button></article>
+      <article class="card"><div class="emoji">🎯</div><h3>CrazyGames</h3><button onclick="showSite('https://www.crazygames.com/','CrazyGames')">Open here</button></article>
+      <article class="card"><div class="emoji">♟️</div><h3>Lichess</h3><button onclick="showSite('https://lichess.org/','Lichess')">Open here</button></article>
+      <article class="card"><div class="emoji">🧱</div><h3>Roblox</h3><button onclick="showSite('https://www.roblox.com/','Roblox')">Open here</button></article>
+      <article class="card"><div class="emoji">♟️</div><h3>ChessKid</h3><button onclick="showSite('https://www.chesskid.com/','ChessKid')">Open here</button></article>
+      <article class="card"><div class="emoji">🧮</div><h3>Math Playground</h3><button onclick="showSite('https://www.mathplayground.com/','Math Playground')">Open here</button></article>
     </div>
   </section>
 
   <section id="apps" class="panel">
     <h2>🚀 App Galaxy</h2>
     <div class="grid">
-      <article class="card">
-        <div class="emoji">🌍</div>
-        <h3>Google Earth</h3>
-        <button onclick="showSite('https://earth.google.com/', 'Google Earth')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">🌐</div>
-        <h3>Google Translate</h3>
-        <button onclick="showSite('https://translate.google.com/', 'Google Translate')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">🤖</div>
-        <h3>ChatGPT</h3>
-        <button onclick="showSite('https://chatgpt.com/', 'ChatGPT')">Open here</button>
-      </article>
-
-      <article class="card">
-        <div class="emoji">✨</div>
-        <h3>Google Gemini</h3>
-        <button onclick="showSite('https://gemini.google.com/', 'Google Gemini')">Open here</button>
-      </article>
+      <article class="card"><div class="emoji">🌍</div><h3>Google Earth</h3><button onclick="showSite('https://earth.google.com/','Google Earth')">Open here</button></article>
+      <article class="card"><div class="emoji">🌐</div><h3>Google Translate</h3><button onclick="showSite('https://translate.google.com/','Google Translate')">Open here</button></article>
+      <article class="card"><div class="emoji">🤖</div><h3>ChatGPT</h3><button onclick="showSite('https://chatgpt.com/','ChatGPT')">Open here</button></article>
+      <article class="card"><div class="emoji">✨</div><h3>Google Gemini</h3><button onclick="showSite('https://gemini.google.com/','Google Gemini')">Open here</button></article>
     </div>
   </section>
 
   <section id="about" class="panel about">
     <h2>✨ About SATYA YUME</h2>
-    <p>
-      Welcome to SATYA YUME, your galaxy-themed launchpad.
-      Explore websites, games, and learning tools surrounded by
-      moving stars, glowing planets, and floating cards.
-    </p>
+    <p>Welcome to SATYA YUME, your galaxy-themed launchpad for websites, games, and learning tools.</p>
     <p>Keep exploring. Keep learning. Chase your dreams. 🌌</p>
   </section>
 </main>
@@ -591,16 +227,11 @@ let currentSite = "";
 
 function showSite(url, title) {
   currentSite = url;
-
-  const panel = document.getElementById("browserPanel");
   document.getElementById("browserTitle").textContent = title;
+  document.getElementById("addressBar").value = url;
   document.getElementById("browserFrame").src = url;
-  panel.hidden = false;
-
-  panel.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
+  document.getElementById("browserPanel").hidden = false;
+  document.getElementById("browserPanel").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
 function closeBrowser() {
@@ -608,22 +239,29 @@ function closeBrowser() {
   document.getElementById("browserPanel").hidden = true;
 }
 
-function openSeparately() {
-  if (currentSite) {
-    window.open(currentSite, "_blank", "noopener");
+function goToAddress() {
+  let address = document.getElementById("addressBar").value.trim();
+  if (!address) return;
+  if (!/^https?:\/\//i.test(address)) address = "https://" + address;
+  try {
+    const parsed = new URL(address);
+    if (parsed.protocol !== "https:" && parsed.protocol !== "http:") return;
+    showSite(parsed.href, parsed.hostname);
+  } catch {
+    alert("Please enter a valid website address.");
   }
 }
 
-/* Search: website address opens in the viewer;
-   ordinary search terms show results in the viewer. */
+function openSeparately() {
+  if (currentSite) window.open(currentSite, "_blank", "noopener");
+}
+
 document.getElementById("searchForm").addEventListener("submit", function(event) {
   event.preventDefault();
-
   const query = document.getElementById("searchInput").value.trim();
   if (!query) return;
 
   let url;
-
   if (/^https?:\/\//i.test(query)) {
     url = query;
   } else if (/^[\w-]+\.[a-z]{2,}(\/.*)?$/i.test(query)) {
@@ -635,55 +273,46 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
   showSite(url, query);
 });
 
-/* Moving galaxy stars */
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 let stars = [];
 
 function resizeCanvas() {
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
-
   canvas.width = window.innerWidth * ratio;
   canvas.height = window.innerHeight * ratio;
   canvas.style.width = window.innerWidth + "px";
   canvas.style.height = window.innerHeight + "px";
-
   ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
 
-  stars = Array.from({length: 150}, () => ({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    size: Math.random() * 1.7 + .3,
-    speed: Math.random() * .4 + .08,
-    phase: Math.random() * Math.PI * 2
+  stars = Array.from({length:150}, () => ({
+    x:Math.random()*window.innerWidth,
+    y:Math.random()*window.innerHeight,
+    size:Math.random()*1.7+.3,
+    speed:Math.random()*.4+.08,
+    phase:Math.random()*Math.PI*2
   }));
 }
 
 function animateStars() {
-  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
+  ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
   for (const star of stars) {
     star.y -= star.speed;
-    star.x += Math.sin(star.phase) * .12;
+    star.x += Math.sin(star.phase)*.12;
     star.phase += .012;
-
     if (star.y < 0) {
       star.y = window.innerHeight;
-      star.x = Math.random() * window.innerWidth;
+      star.x = Math.random()*window.innerWidth;
     }
-
-    ctx.fillStyle = "rgba(190,220,255," +
-      (0.4 + (Math.sin(star.phase) + 1) * .3) + ")";
-
+    ctx.fillStyle = "rgba(190,220,255,"+(0.4+(Math.sin(star.phase)+1)*.3)+")";
     ctx.beginPath();
-    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+    ctx.arc(star.x,star.y,star.size,0,Math.PI*2);
     ctx.fill();
   }
-
   requestAnimationFrame(animateStars);
 }
 
-window.addEventListener("resize", resizeCanvas);
+window.addEventListener("resize",resizeCanvas);
 resizeCanvas();
 animateStars();
 </script>
